@@ -1,26 +1,106 @@
 @import "tailwindcss";
 
+/* ------------------------------------------------------------------
+   Claude Editorial palette
+   Warm parchment canvas, warm-toned neutrals, terracotta accent.
+   Change colors here; every component reads from these tokens.
+------------------------------------------------------------------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Surfaces */
+  --canvas: #faf9f5;        /* page background (parchment) */
+  --surface: #f5f4ed;       /* cards / raised areas */
+  --surface-strong: #f0eee6;/* hover / subtle fills */
+
+  /* Ink */
+  --ink: #141413;           /* primary text */
+  --ink-muted: #5e5d59;     /* secondary text */
+  --ink-subtle: #8c8a82;    /* captions / meta */
+
+  /* Lines */
+  --line: #e8e6dc;          /* hairline borders */
+
+  /* Accents */
+  --accent: #d97757;        /* terracotta / clay */
+  --accent-hover: #c6613f;
+  --sage: #788c5d;
+  --dusty-blue: #6a9bcc;
+
+  /* Inverted panel (contact block) */
+  --panel: #141413;
+  --panel-ink: #faf9f5;
+  --panel-muted: #b0aea5;
+
+  /* Project thumbnail tones */
+  --tone-clay: #e8dccb;
+  --tone-sage: #d6ddcb;
+  --tone-blue: #d3dce6;
+
+  color-scheme: light;
+}
+
+/* Dark theme — Claude dark palette. Toggled via data-theme on <html>. */
+:root[data-theme="dark"] {
+  --canvas: #262624;
+  --surface: #2e2e2b;
+  --surface-strong: #363633;
+
+  --ink: #f5f4ed;
+  --ink-muted: #b0aea5;
+  --ink-subtle: #8c8a82;
+
+  --line: #3a3a37;
+
+  --accent: #d97757;
+  --accent-hover: #e48b6d;
+
+  --panel: #30302e;
+  --panel-ink: #f5f4ed;
+  --panel-muted: #b0aea5;
+
+  --tone-clay: #4a3f33;
+  --tone-sage: #3a4033;
+  --tone-blue: #333c46;
+
+  color-scheme: dark;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-subtle: var(--ink-subtle);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-sage: var(--sage);
+  --color-dusty-blue: var(--dusty-blue);
+  --color-panel: var(--panel);
+  --color-panel-ink: var(--panel-ink);
+  --color-panel-muted: var(--panel-muted);
+
   --font-sans: var(--font-geist-sans);
+  --font-serif: var(--font-serif-display);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+}
+
+/* Keep anchored sections clear of the sticky navbar */
+section[id] {
+  scroll-margin-top: 4rem;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--canvas);
 }
