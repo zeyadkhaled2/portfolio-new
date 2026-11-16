@@ -66,7 +66,11 @@ function ProjectCard({
           <div className="flex h-full w-full items-center justify-center p-5 pt-13 sm:p-7 sm:pt-14">
             <div
               className={`relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-black/15 shadow-2xl transition-transform duration-500 ease-out group-hover:scale-[1.03] ${
-                tone === "mint" ? "bg-[#111514]" : "bg-[#f7f7f2]"
+                tone === "mint"
+                  ? "bg-[#111514]"
+                  : tone === "lavender"
+                    ? "bg-[#121626]"
+                    : "bg-[#f7f7f2]"
               }`}
             >
               <Image
@@ -74,7 +78,11 @@ function ProjectCard({
                 alt={`${title} preview`}
                 fill
                 sizes="(max-width: 768px) 90vw, 640px"
-                className="object-contain"
+                className={
+                  coverFit === "cover-top"
+                    ? "object-cover object-top"
+                    : "object-contain"
+                }
               />
             </div>
           </div>

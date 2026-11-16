@@ -4,6 +4,20 @@
 
 export const experience = [
   {
+    period: "2026 · REMOTE",
+    role: "Computer Vision & ML Engineer",
+    company: "Remote Team (Saudi Arabia)",
+    summary:
+      "Worked remotely with a team in Saudi Arabia on Crowd Anomaly Detection — a multi-stage deep learning pipeline for crowd violence detection, HAJJv2 abnormal behavior recognition (YOLOv8n + Hybrid 3D CNN + Motion Channel), and density estimation.",
+  },
+  {
+    period: "2026 · REMOTE",
+    role: "Full-Stack Web Developer",
+    company: "Egypt bnbn Travel (Remote)",
+    summary:
+      "Built and shipped the production Next.js 15 & TypeScript travel booking platform (egyptbnbntravel.com), featuring multi-category tour catalogs, dynamic itineraries, Formik booking flows, Schema.org SEO, and a Google Sheets reviews API.",
+  },
+  {
     period: "2025 — NOW",
     role: "Software Developer",
     company: "Independent & Product Builds",

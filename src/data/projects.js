@@ -214,9 +214,9 @@ export const projects = [
     subtitle:
       "Multi-stage deep learning pipeline for crowd violence, abnormal behavior & density estimation",
     year: "2026",
-    role: "Computer Vision & ML Engineer",
+    role: "Computer Vision & ML Engineer · Remote (Saudi Arabia)",
     description:
-      "End-to-end vision system progressing from Conv3D + LSTM (5-Fold CV) to a Hybrid YOLOv8n + 3D CNN + Motion Channel + Focal Loss architecture (0.948 Val / 0.865 Test F1 Macro).",
+      "Built remotely with a team in Saudi Arabia — an end-to-end vision system progressing from Conv3D + LSTM (5-Fold CV) to a Hybrid YOLOv8n + 3D CNN + Motion Channel + Focal Loss architecture (0.948 Val / 0.865 Test F1 Macro).",
     tags: ["PyTorch", "YOLOv8n", "3D CNN", "TensorFlow", "Computer Vision"],
     tone: "mint",
     coverImage: "/projects/crowd-anomaly/yolo_sample_detection.jpg",
@@ -273,7 +273,7 @@ export const projects = [
       },
     ],
     overview:
-      "An end-to-end Computer Vision pipeline built for real-time abnormal behavior detection and crowd density estimation across two benchmarks: Crowd Violence Detection (binary sequence classification) and HAJJv2 (7-class object detection and 4-class grouped multi-label spatiotemporal behavior recognition).",
+      "Developed in remote collaboration with a team in Saudi Arabia, this end-to-end Computer Vision pipeline targets real-time abnormal behavior detection and crowd density estimation across two benchmarks: Crowd Violence Detection (binary sequence classification) and HAJJv2 (7-class object detection and 4-class grouped multi-label spatiotemporal behavior recognition).",
     features: [
       {
         title: "Binary Violence (Conv3D + LSTM)",
@@ -323,6 +323,97 @@ export const projects = [
         label: "Run sequence inference",
         code: "python src/hajjv2_detection/infer_4c.py --source <video_or_frames> --checkpoint best_model_4classes.pt",
       },
+    ],
+  },
+  {
+    slug: "egyptbnbn-travel",
+    title: "Egypt bnbn Travel",
+    subtitle:
+      "Production travel & tour booking platform across Cairo, Giza, Luxor, Aswan & the Red Sea",
+    year: "2026",
+    role: "Full-Stack Web Developer · Remote",
+    description:
+      "Delivered remotely — a live Next.js 15 tourism platform featuring multi-category Egyptian tour catalogs, dynamic itinerary & Formik booking pages, SEO Schema.org markup, and Google Sheets-backed reviews.",
+    tags: ["Next.js 15", "TypeScript", "Tailwind CSS", "Google Sheets API"],
+    tone: "lavender",
+    coverImage: "/projects/egyptbnbn-travel/01-hero-desktop.png",
+    coverFit: "cover-top",
+    links: [
+      { label: "Live Website", href: "https://egyptbnbntravel.com" },
+      { label: "GitHub Repo", href: "https://github.com/zeyadkhaled2/tours" },
+    ],
+    video: null,
+    screenshots: [
+      {
+        src: "/projects/egyptbnbn-travel/01-hero-desktop.png",
+        title: "Landing Hero & Navigation",
+        caption:
+          "Atmospheric Giza Pyramids hero with direct WhatsApp contact, category navigation, and dual CTAs.",
+      },
+      {
+        src: "/projects/egyptbnbn-travel/02-popular-tours.png",
+        title: "Popular Tours Catalog",
+        caption:
+          "Curated Cairo, Alexandria, and Fayoum tour cards showing duration, max group size, ratings, and pricing.",
+      },
+      {
+        src: "/projects/egyptbnbn-travel/03-tour-booking.png",
+        title: "Tour Itinerary & Booking Form",
+        caption:
+          "Dynamic /tour/[slug] page pairing inclusions, exclusions, and step-by-step plans with a live Formik booking form.",
+      },
+      {
+        src: "/projects/egyptbnbn-travel/04-perfect-destinations.png",
+        title: "Destinations Carousel",
+        caption:
+          "Interactive Embla carousel highlighting Dahab, Hurghada, Luxor, and top Egyptian travel regions.",
+      },
+    ],
+    overview:
+      "Built remotely for Egypt bnbn Travel (egyptbnbntravel.com), this production travel and excursion booking website runs on Next.js 15 and TypeScript. Travelers can browse curated Day Tours, Overday Tours, Multi-Day Packages, Nile Cruises, and Activities across Egypt, inspect full day-by-day itineraries, submit booking inquiries, and read verified guest reviews fetched dynamically from Google Sheets.",
+    features: [
+      {
+        title: "Multi-Category Tour Catalog",
+        detail:
+          "Dedicated Next.js routes for Day Tours, Overday Tours, Package Tours, Nile Cruise Tours, and Activities, backed by a structured TypeScript catalog.",
+      },
+      {
+        title: "Dynamic Booking & Itineraries",
+        detail:
+          "Each /tour/[slug] page presents highlights, inclusions/exclusions, numbered tour plans, and a Formik + Yup booking form with Radix UI selectors and toast feedback.",
+      },
+      {
+        title: "Google Sheets Reviews API",
+        detail:
+          "Serverless /api/reviews route authenticates via a Google Service Account (googleapis) to fetch live traveler testimonials directly from a managed spreadsheet.",
+      },
+      {
+        title: "Production SEO & Analytics",
+        detail:
+          "Configured canonical metadata, OpenGraph/Twitter tags, Organization & WebSite JSON-LD structured data, WhatsApp quick actions, and Vercel Analytics.",
+      },
+    ],
+    architecture: [
+      "Built on Next.js 15.4 App Router, React 19, TypeScript, and Tailwind CSS v4 with Playfair Display and DM Sans typography.",
+      "Accessible UI primitives powered by Radix UI (@radix-ui/react-select, @radix-ui/react-slot), Lucide icons, and Embla Carousel.",
+      "Booking pipeline handles Formik state, validation, FormData submission, and react-hot-toast status notifications.",
+      "Live testimonials endpoint (/api/reviews) reads Google Sheets via base64 service-account credentials in environment variables.",
+    ],
+    techStack: [
+      "Next.js 15",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS",
+      "Radix UI",
+      "Formik & Yup",
+      "Embla Carousel",
+      "Google Sheets API",
+      "Vercel Analytics",
+    ],
+    readmeCommands: [
+      { label: "Start dev server", code: "npm run dev" },
+      { label: "Build for production", code: "npm run build" },
+      { label: "Run ESLint", code: "npm run lint" },
     ],
   },
 ];
