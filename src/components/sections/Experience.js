@@ -1,28 +1,36 @@
 import Reveal from "@/components/ui/Reveal";
-import { experience } from "@/data/portfolio";
+import { experience } from "@/data";
 
 export default function Experience() {
   return (
-    <section id="experience" className="border-t border-line py-24">
-      <div className="mx-auto w-full max-w-5xl px-6 md:px-10">
+    <section id="experience" className="py-16 sm:py-24">
+      <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-10 lg:px-14">
         <Reveal>
-          <header className="mb-10">
-            <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-accent">
+          <header className="mb-10 sm:mb-12">
+            <span className="font-mono text-xs uppercase tracking-[0.18em] text-accent">
               Experience
-            </p>
-            <h2 className="font-serif text-3xl leading-tight md:text-4xl">Where I&apos;ve worked</h2>
+            </span>
+            <h2 className="mt-2 font-display text-3xl font-bold uppercase tracking-[0.02em] text-ink sm:text-4xl lg:text-5xl">
+              Where I&apos;ve Worked
+            </h2>
           </header>
         </Reveal>
+
         <ol className="divide-y divide-line border-y border-line">
           {experience.map((job, i) => (
-            <li key={i} className="py-6">
-              <Reveal delay={i * 0.08} className="grid gap-2 md:grid-cols-4 md:gap-8">
-                <p className="text-sm text-ink-subtle">{job.period}</p>
-                <div className="md:col-span-3">
-                  <h3 className="font-serif text-xl">
-                    {job.role} <span className="text-ink-muted">· {job.company}</span>
+            <li key={`${job.period}-${i}`} className="py-7 sm:py-9">
+              <Reveal delay={i * 0.08} className="grid gap-3 md:grid-cols-12 md:items-baseline md:gap-8">
+                <p className="font-mono text-sm uppercase tracking-[0.08em] text-ink-muted md:col-span-3">
+                  {job.period}
+                </p>
+                <div className="md:col-span-9">
+                  <h3 className="font-display text-2xl font-semibold text-ink">
+                    {job.role}{" "}
+                    <span className="font-normal text-accent">· {job.company}</span>
                   </h3>
-                  <p className="mt-2 leading-relaxed text-ink-muted">{job.summary}</p>
+                  <p className="mt-2.5 max-w-2xl font-sans text-base leading-relaxed text-ink-muted">
+                    {job.summary}
+                  </p>
                 </div>
               </Reveal>
             </li>

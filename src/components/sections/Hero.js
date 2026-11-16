@@ -1,48 +1,44 @@
 import Button from "@/components/ui/Button";
 import { HeroTimeline } from "@/components/ui/Reveal";
-import { site } from "@/data/portfolio";
-
-function MaskedWords({ text, className = "" }) {
-  return text.split(" ").map((word, i) => (
-    <span key={i} className="inline-block overflow-hidden align-bottom pb-1 mr-[0.26em]">
-      <span data-hero="word" className={`inline-block ${className}`}>
-        {word}
-      </span>
-    </span>
-  ));
-}
+import { site } from "@/data";
 
 export default function Hero() {
+  const { prefix, highlight, suffix } = site.heroHeadline;
+
   return (
-    <section id="top" className="pt-20 pb-24 md:pt-28 md:pb-32">
-      <HeroTimeline className="mx-auto w-full max-w-5xl px-6 md:px-10">
-        <p
-          data-hero="eyebrow"
-          className="mb-6 text-xs font-medium uppercase tracking-[0.2em] text-accent"
-        >
-          {site.role} · {site.location}
-        </p>
-        <h1 className="max-w-3xl font-serif text-5xl leading-[1.1] md:text-6xl">
-          <MaskedWords text={`Hi, I'm ${site.name}.`} />
-          <span className="text-ink-muted">
-            <MaskedWords text="I build thoughtful software that feels" />
-            <span className="inline-block overflow-hidden align-bottom pb-1 mr-[0.26em]">
-              <em data-hero="word" className="inline-block text-accent">
-                calm
-              </em>
-            </span>
-            <MaskedWords text="to use." />
+    <section id="top" className="pt-16 pb-20 sm:pt-24 sm:pb-28 lg:pt-28 lg:pb-32">
+      <HeroTimeline className="mx-auto w-full max-w-[1440px] px-6 sm:px-10 lg:px-14">
+        <div className="mb-8 sm:mb-10">
+          <span
+            data-hero="badge"
+            className="inline-block -rotate-9 rounded-full border border-accent px-4 py-2 font-mono text-sm text-ink sm:text-base"
+          >
+            Hi, I&apos;m {site.name.split(" ")[0]}
           </span>
+        </div>
+
+        <h1
+          data-hero="headline"
+          className="max-w-[1220px] font-display text-[2.45rem] font-bold uppercase leading-[1.08] tracking-[0.025em] text-ink sm:text-[3.5rem] lg:text-[4.5rem] xl:text-[5.25rem]"
+        >
+          {prefix} <span className="text-accent">{highlight}</span> {suffix}
         </h1>
-        <p data-hero="desc" className="mt-8 max-w-xl text-lg leading-relaxed text-ink-muted">
+
+        <p
+          data-hero="desc"
+          className="mt-7 max-w-3xl font-display text-lg leading-[1.45] tracking-[0.015em] text-ink/90 sm:mt-9 sm:text-2xl sm:leading-[1.35]"
+        >
           {site.description}
         </p>
-        <div data-hero="cta" className="mt-10 flex flex-wrap gap-3">
-          <Button href="#work">View my work</Button>
-          <Button href={site.cvUrl} variant="outline">
-            Download CV
+
+        <div data-hero="cta" className="mt-9 flex flex-wrap items-center gap-4 sm:mt-11">
+          <Button href="#contact">Let&apos;s talk</Button>
+          <Button href="#work" variant="outline">
+            See work
           </Button>
         </div>
+
+        <div className="mt-16 h-px w-full bg-line sm:mt-24" aria-hidden="true" />
       </HeroTimeline>
     </section>
   );
