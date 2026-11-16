@@ -20,7 +20,7 @@ export const site = {
   locationBadge: "CAIRO BASED — WORLDWIDE DELIVERY",
   email: "kziad834@gmail.com",
   cvUrl: "#",
-  portraitUrl: null,
+  portraitUrl: "/images/portrait.jpg",
   year: 2026,
   socials: [
     { label: "GitHub", href: "https://github.com/zeyadkhaled2" },

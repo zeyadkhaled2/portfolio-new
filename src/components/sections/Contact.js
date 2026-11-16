@@ -42,7 +42,7 @@ export default function Contact() {
                             alt={`${site.name} portrait`}
                             fill
                             sizes="(max-width: 768px) 192px, 224px"
-                            className="object-cover"
+                            className="object-cover object-[50%_34%] scale-[1.12]"
                           />
                           <div className="crt-scanlines pointer-events-none absolute inset-0 opacity-40" />
                         </>
