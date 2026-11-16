@@ -208,4 +208,121 @@ export const projects = [
       { label: "Step 03 — Receive", code: "Track orders in Seller Dashboard" },
     ],
   },
+  {
+    slug: "crowd-anomaly-detection",
+    title: "Crowd Anomaly Detection",
+    subtitle:
+      "Multi-stage deep learning pipeline for crowd violence, abnormal behavior & density estimation",
+    year: "2026",
+    role: "Computer Vision & ML Engineer",
+    description:
+      "End-to-end vision system progressing from Conv3D + LSTM (5-Fold CV) to a Hybrid YOLOv8n + 3D CNN + Motion Channel + Focal Loss architecture (0.948 Val / 0.865 Test F1 Macro).",
+    tags: ["PyTorch", "YOLOv8n", "3D CNN", "TensorFlow", "Computer Vision"],
+    tone: "mint",
+    coverImage: "/projects/crowd-anomaly/yolo_sample_detection.jpg",
+    coverFit: "cover",
+    links: [
+      {
+        label: "GitHub Repo",
+        href: "https://github.com/zeyadkhaled2/crowd-anomaly-detection",
+      },
+    ],
+    video: null,
+    screenshots: [
+      {
+        src: "/projects/crowd-anomaly/yolo_sample_detection.jpg",
+        title: "YOLOv8n Behavior Detection",
+        caption:
+          "Crowd behavior localization on HAJJv2 frames (0.955 mAP@0.5 / 0.713 mAP@0.5:0.95 validation).",
+      },
+      {
+        src: "/projects/crowd-anomaly/sample_pred_4c_test.png",
+        title: "16-Frame Sequence Prediction",
+        caption:
+          "4-class grouped multi-label behavior & crowd density prediction on an unseen 16-frame test clip.",
+      },
+      {
+        src: "/projects/crowd-anomaly/hybrid_4c_training_curves.png",
+        title: "4-Class Hybrid Training Curves",
+        caption:
+          "Classification, density, and Hamming loss alongside Jaccard IoU, F1 Macro, and Subset Accuracy over 50 epochs.",
+      },
+      {
+        src: "/projects/crowd-anomaly/hybrid_4c_val_metrics.png",
+        title: "4-Class Validation Metrics",
+        caption:
+          "Per-class precision, recall, F1, and accuracy achieving 0.948 Val F1 Macro and 0.956 Jaccard.",
+      },
+      {
+        src: "/projects/crowd-anomaly/hybrid_4c_test_metrics.png",
+        title: "4-Class Test Metrics",
+        caption:
+          "Held-out test generalization reaching 0.865 Test F1 Macro and 0.865 Jaccard across 4 macro behaviors.",
+      },
+      {
+        src: "/projects/crowd-anomaly/yolo_train3_confusion_matrix.png",
+        title: "7-Class Confusion Matrix",
+        caption:
+          "Normalized YOLOv8n confusion matrix across sitting, standing, moving opposite, running, and non-human objects.",
+      },
+      {
+        src: "/projects/crowd-anomaly/yolo_train3_results.png",
+        title: "YOLOv8n Training Progression",
+        caption:
+          "40-epoch box/class/DFL losses, precision, recall, mAP50, and mAP50-95 curves on HAJJv2.",
+      },
+    ],
+    overview:
+      "An end-to-end Computer Vision pipeline built for real-time abnormal behavior detection and crowd density estimation across two benchmarks: Crowd Violence Detection (binary sequence classification) and HAJJv2 (7-class object detection and 4-class grouped multi-label spatiotemporal behavior recognition).",
+    features: [
+      {
+        title: "Binary Violence (Conv3D + LSTM)",
+        detail:
+          "Progressed from 2D and 3D CNN baselines to Conv3D + LSTM with 5-Fold Stratified CV (sequence=90, Masking, L2), reaching 83.93% ± 6.83% CV accuracy, 82.35% test accuracy, and 0.88 ± 0.08 AUC.",
+      },
+      {
+        title: "YOLOv8n Crowd Localization",
+        detail:
+          "Trained YOLOv8n (640×640, mosaic augmentation, Soft-NMS) on HAJJv2 frames, achieving 0.955 mAP@0.5 on validation and exposing domain-shift limitations on rare motion classes.",
+      },
+      {
+        title: "Hybrid YOLO3DCNN + Motion",
+        detail:
+          "Combined 10 pretrained YOLOv8n spatial layers (256 ch) with a grayscale frame-difference motion channel (cv2.absdiff, 257 ch total) and a Conv3d temporal head + log-density regression.",
+      },
+      {
+        title: "Focal Loss & 4-Class Grouping",
+        detail:
+          "Tackled severe class imbalance with FocalLoss(alpha=0.25, gamma=2.0) and consolidated 7 behaviors into 4 macro classes, lifting Test F1 Macro from 0.725 to 0.865 (0.948 Val F1 Macro).",
+      },
+    ],
+    architecture: [
+      "Phase 1 (src/violence_detection/): TensorFlow/Keras 2D CNN, Volumetric 3D CNN, Conv3D + LSTM 5-Fold CV, and 5-attention ablation study (self, multihead, Bahdanau, Luong).",
+      "Phase 2 (src/hajjv2_detection/): PyTorch YOLO3DCNN and YOLO3DCNN_MultiLabel pipelines with 16-frame clip sampling and log1p crowd density regression.",
+      "Dataset & Configs: Relative YOLOv8 config (configs/hajjv2.yaml) and CSV-to-YOLO frame converter (prepare_yolo_dataset.py).",
+      "Standalone CLI inference (infer_4c.py) and reproducible evaluation reports saved under reports/ (JSON, CSV, TXT).",
+    ],
+    techStack: [
+      "Python",
+      "PyTorch",
+      "Ultralytics YOLOv8",
+      "TensorFlow / Keras",
+      "OpenCV",
+      "NumPy",
+      "Pandas",
+      "scikit-learn",
+      "Matplotlib / Seaborn",
+    ],
+    readmeCommands: [
+      { label: "Install dependencies", code: "pip install -r requirements.txt" },
+      {
+        label: "Train 4-class hybrid model",
+        code: "python src/hajjv2_detection/train_yolo_3dcnn_4c.py",
+      },
+      {
+        label: "Run sequence inference",
+        code: "python src/hajjv2_detection/infer_4c.py --source <video_or_frames> --checkpoint best_model_4classes.pt",
+      },
+    ],
+  },
 ];

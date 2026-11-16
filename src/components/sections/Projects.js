@@ -64,7 +64,11 @@ function ProjectCard({
           </div>
         ) : (
           <div className="flex h-full w-full items-center justify-center p-5 pt-13 sm:p-7 sm:pt-14">
-            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-black/15 bg-[#f7f7f2] shadow-2xl transition-transform duration-500 ease-out group-hover:scale-[1.03]">
+            <div
+              className={`relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-black/15 shadow-2xl transition-transform duration-500 ease-out group-hover:scale-[1.03] ${
+                tone === "mint" ? "bg-[#111514]" : "bg-[#f7f7f2]"
+              }`}
+            >
               <Image
                 src={coverImage}
                 alt={`${title} preview`}

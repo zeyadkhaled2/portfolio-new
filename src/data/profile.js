@@ -23,7 +23,7 @@ export const skills = [
   {
     group: "Languages",
     accent: "accent",
-    items: ["JavaScript", "TypeScript", "HTML5", "CSS3"],
+    items: ["JavaScript", "TypeScript", "Python", "HTML5", "CSS3"],
   },
   {
     group: "Frontend & Mobile",
@@ -31,9 +31,9 @@ export const skills = [
     items: ["React", "Next.js", "React Native", "Expo", "Tailwind CSS"],
   },
   {
-    group: "Backend & AI",
+    group: "Backend & AI / ML",
     accent: "mint",
-    items: ["Node.js", "REST APIs", "PostgreSQL", "AI Agents / RAG"],
+    items: ["Node.js", "PostgreSQL", "PyTorch", "YOLOv8 / OpenCV", "AI Agents / RAG"],
   },
   {
     group: "Tools",
