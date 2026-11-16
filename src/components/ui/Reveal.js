@@ -1,17 +1,19 @@
 "use client";
 
 import { useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
-
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+import { gsap, useGSAP } from "@/lib/gsap";
 
 /**
- * Scroll-triggered editorial fade-up reveal powered by GSAP + ScrollTrigger.
- * Keeps section files as Server Components while providing staggered GSAP motion.
+ * Scroll-triggered entrance powered by GSAP + ScrollTrigger.
+ * Respects `prefers-reduced-motion` and keeps animations calm (transform + opacity only).
  */
-export default function Reveal({ children, delay = 0, y = 24, className = "" }) {
+export default function Reveal({
+  children,
+  variant = "rise",
+  delay = 0,
+  y = 22,
+  className = "",
+}) {
   const ref = useRef(null);
 
   useGSAP(
@@ -21,27 +23,45 @@ export default function Reveal({ children, delay = 0, y = 24, className = "" }) 
 
       const mm = gsap.matchMedia();
       mm.add("(prefers-reduced-motion: no-preference)", () => {
+        const trigger = { trigger: el, start: "top 88%", once: true };
+
+        if (variant === "rule") {
+          gsap.fromTo(
+            el,
+            { scaleX: 0, transformOrigin: "left center" },
+            {
+              scaleX: 1,
+              duration: 0.75,
+              delay,
+              ease: "power3.out",
+              clearProps: "transform",
+              scrollTrigger: trigger,
+            }
+          );
+          return;
+        }
+
         gsap.fromTo(
           el,
-          { autoAlpha: 0, y },
+          { opacity: 0, y },
           {
-            autoAlpha: 1,
+            opacity: 1,
             y: 0,
-            duration: 0.8,
+            duration: 0.7,
             delay,
             ease: "power3.out",
-            clearProps: "transform",
-            scrollTrigger: {
-              trigger: el,
-              start: "top 88%",
-              once: true,
-            },
+            clearProps: "transform,opacity",
+            scrollTrigger: trigger,
           }
         );
       });
     },
-    { scope: ref }
+    { scope: ref, dependencies: [variant, delay, y] }
   );
+
+  if (variant === "rule") {
+    return <div ref={ref} className={`h-px w-full bg-line ${className}`} aria-hidden="true" />;
+  }
 
   return (
     <div ref={ref} className={className}>
@@ -51,8 +71,7 @@ export default function Reveal({ children, delay = 0, y = 24, className = "" }) 
 }
 
 /**
- * Orchestrated GSAP timeline for the Hero section:
- * animates eyebrow, word-by-word masked headline, description, and CTA buttons.
+ * Orchestrated GSAP entrance for the Hero section.
  */
 export function HeroTimeline({ children, className = "" }) {
   const scope = useRef(null);
@@ -61,36 +80,55 @@ export function HeroTimeline({ children, className = "" }) {
     () => {
       const mm = gsap.matchMedia();
       mm.add("(prefers-reduced-motion: no-preference)", () => {
-        const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+        const tl = gsap.timeline();
 
         tl.fromTo(
-          "[data-hero='eyebrow']",
-          { autoAlpha: 0, y: 12 },
-          { autoAlpha: 1, y: 0, duration: 0.55 }
+          "[data-hero='badge']",
+          { opacity: 0, y: 12, rotation: -14 },
+          {
+            opacity: 1,
+            y: 0,
+            rotation: -9,
+            duration: 0.55,
+            ease: "power3.out",
+            clearProps: "opacity",
+          }
         )
           .fromTo(
-            "[data-hero='word']",
-            { yPercent: 110, autoAlpha: 0 },
+            "[data-hero='headline']",
+            { opacity: 0, y: 20 },
             {
-              yPercent: 0,
-              autoAlpha: 1,
-              duration: 0.7,
-              stagger: 0.035,
-              clearProps: "transform",
+              opacity: 1,
+              y: 0,
+              duration: 0.65,
+              ease: "power3.out",
+              clearProps: "transform,opacity",
             },
-            "-=0.3"
-          )
-          .fromTo(
-            "[data-hero='desc']",
-            { autoAlpha: 0, y: 16 },
-            { autoAlpha: 1, y: 0, duration: 0.65, clearProps: "transform" },
             "-=0.35"
           )
           .fromTo(
+            "[data-hero='desc']",
+            { opacity: 0, y: 14 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.55,
+              ease: "power3.out",
+              clearProps: "transform,opacity",
+            },
+            "-=0.38"
+          )
+          .fromTo(
             "[data-hero='cta']",
-            { autoAlpha: 0, y: 14 },
-            { autoAlpha: 1, y: 0, duration: 0.6, clearProps: "transform" },
-            "-=0.4"
+            { opacity: 0, y: 12 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.5,
+              ease: "power3.out",
+              clearProps: "transform,opacity",
+            },
+            "-=0.35"
           );
       });
     },

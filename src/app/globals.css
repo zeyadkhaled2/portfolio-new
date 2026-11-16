@@ -1,67 +1,65 @@
 @import "tailwindcss";
 
 /* ------------------------------------------------------------------
-   Claude Editorial palette
-   Warm parchment canvas, warm-toned neutrals, terracotta accent.
-   Change colors here; every component reads from these tokens.
+   v2 Palette — inspired by portfolio.tami.agency
+   Dark mode default (#131314 obsidian, #f6f2e7 cream, #7e81f4 periwinkle)
+   with a cohesive light mode counterpart (#f6f2e7 canvas, #131314 ink).
 ------------------------------------------------------------------- */
-:root {
-  /* Surfaces */
-  --canvas: #faf9f5;        /* page background (parchment) */
-  --surface: #f5f4ed;       /* cards / raised areas */
-  --surface-strong: #f0eee6;/* hover / subtle fills */
-
-  /* Ink */
-  --ink: #141413;           /* primary text */
-  --ink-muted: #5e5d59;     /* secondary text */
-  --ink-subtle: #8c8a82;    /* captions / meta */
-
-  /* Lines */
-  --line: #e8e6dc;          /* hairline borders */
-
-  /* Accents */
-  --accent: #d97757;        /* terracotta / clay */
-  --accent-hover: #c6613f;
-  --sage: #788c5d;
-  --dusty-blue: #6a9bcc;
-
-  /* Inverted panel (contact block) */
-  --panel: #141413;
-  --panel-ink: #faf9f5;
-  --panel-muted: #b0aea5;
-
-  /* Project thumbnail tones */
-  --tone-clay: #e8dccb;
-  --tone-sage: #d6ddcb;
-  --tone-blue: #d3dce6;
-
-  color-scheme: light;
-}
-
-/* Dark theme — Claude dark palette. Toggled via data-theme on <html>. */
+:root,
 :root[data-theme="dark"] {
-  --canvas: #262624;
-  --surface: #2e2e2b;
-  --surface-strong: #363633;
+  --canvas: #131314;
+  --surface: #1b1b1d;
+  --surface-strong: #242428;
 
-  --ink: #f5f4ed;
-  --ink-muted: #b0aea5;
-  --ink-subtle: #8c8a82;
+  --ink: #f6f2e7;
+  --ink-muted: #969696;
+  --ink-subtle: #6e6e73;
 
-  --line: #3a3a37;
+  --line: #2c2c30;
 
-  --accent: #d97757;
-  --accent-hover: #e48b6d;
+  --accent: #7e81f4;
+  --accent-hover: #9699f8;
+  --accent-ink: #131314;
 
-  --panel: #30302e;
-  --panel-ink: #f5f4ed;
-  --panel-muted: #b0aea5;
+  /* Sub-accents from tami.agency */
+  --pink: #ef91a5;
+  --yellow: #ece69a;
+  --mint: #78dfc0;
 
-  --tone-clay: #4a3f33;
-  --tone-sage: #3a4033;
-  --tone-blue: #333c46;
+  /* Project showcase backdrops */
+  --tone-peach: #fdebd2;
+  --tone-obsidian: #1d1e22;
+  --tone-mint: #d7f2e8;
+  --tone-lavender: #e6e7fc;
 
   color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  --canvas: #f6f2e7;
+  --surface: #ede8da;
+  --surface-strong: #e3ddc9;
+
+  --ink: #131314;
+  --ink-muted: #56544e;
+  --ink-subtle: #7a776f;
+
+  --line: #d6d0c0;
+
+  --accent: #5b5ee6;
+  --accent-hover: #484bd4;
+  --accent-ink: #f6f2e7;
+
+  --pink: #d45b76;
+  --yellow: #9d8e1a;
+  --mint: #1f8e6d;
+
+  --tone-peach: #fae3c4;
+  --tone-obsidian: #18191d;
+  --tone-mint: #ccecdf;
+  --tone-lavender: #dfe1fb;
+
+  color-scheme: light;
 }
 
 @theme inline {
@@ -74,33 +72,80 @@
   --color-line: var(--line);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
-  --color-sage: var(--sage);
-  --color-dusty-blue: var(--dusty-blue);
-  --color-panel: var(--panel);
-  --color-panel-ink: var(--panel-ink);
-  --color-panel-muted: var(--panel-muted);
+  --color-accent-ink: var(--accent-ink);
+  --color-pink: var(--pink);
+  --color-yellow: var(--yellow);
+  --color-mint: var(--mint);
 
-  --font-sans: var(--font-geist-sans);
-  --font-serif: var(--font-serif-display);
-  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-clash), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-roboto-mono), ui-monospace, monospace;
+  --font-pixel: var(--font-pixel), ui-monospace, monospace;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-/* Keep anchored sections clear of the sticky navbar */
 section[id] {
-  scroll-margin-top: 4rem;
+  scroll-margin-top: 5rem;
 }
 
 body {
   background: var(--canvas);
   color: var(--ink);
-  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-sans);
+  transition: background-color 220ms ease, color 220ms ease;
 }
 
-::selection {
-  background: var(--accent);
-  color: var(--canvas);
+/* Subtle diagonal pill shine (tami.agency button sweep) */
+.pill-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.pill-shine::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  width: 36%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.22),
+    transparent
+  );
+  transform: translateX(-220%) rotate(-17deg);
+  transition: transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.pill-shine:hover::after {
+  transform: translateX(460%) rotate(-17deg);
+}
+
+/* Retro CRT scanlines & phosphor curvature glow */
+.crt-scanlines {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0.24) 3px,
+    rgba(0, 0, 0, 0.24) 4px
+  );
+}
+
+.crt-vignette {
+  box-shadow:
+    inset 0 0 60px rgba(4, 7, 36, 0.72),
+    inset 0 0 18px rgba(126, 129, 244, 0.22);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .pill-shine::after {
+    display: none;
+  }
 }
