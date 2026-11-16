@@ -20,8 +20,6 @@ function ProjectCard({
   coverImage,
   secondaryImage,
   coverFit,
-  screenshots,
-  video,
 }) {
   const metaLine = [year, ...tags].filter(Boolean).join(" · ");
 
@@ -31,60 +29,46 @@ function ProjectCard({
       className="group flex flex-col focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
     >
       <div
-        className={`relative h-[300px] w-full overflow-hidden rounded-[20px] border border-line sm:h-[360px] lg:h-[420px] ${backdropTones[tone] ?? backdropTones.obsidian}`}
+        className={`relative aspect-[16/10] w-full overflow-hidden rounded-[20px] border border-line ${backdropTones[tone] ?? backdropTones.obsidian}`}
       >
-        {/* Subtle media count pill */}
-        <div className="pointer-events-none absolute top-4 left-4 z-20 flex items-center gap-2 rounded-full border border-white/15 bg-[#131314]/80 px-3 py-1 font-mono text-[11px] text-[#f6f2e7] backdrop-blur-sm">
-          {video && <span className="h-1.5 w-1.5 rounded-full bg-mint" />}
-          <span>
-            {video ? "Demo Video" : "Preview"} · {screenshots.length} screens
-          </span>
-        </div>
-
-        {coverFit === "contain" && secondaryImage ? (
-          <div className="flex h-full w-full items-center justify-center gap-4 px-5 pt-12 pb-5 transition-transform duration-500 ease-out group-hover:scale-[1.03] sm:gap-5 sm:px-8">
-            <div className="relative aspect-[4/5] h-full max-w-[47%] overflow-hidden rounded-2xl border border-white/15 bg-[#111917] shadow-2xl">
+        {coverFit === "mobile-pair" && secondaryImage ? (
+          <div className="relative flex h-full w-full items-end justify-center gap-5 px-6 pt-7 sm:gap-7 sm:px-10 sm:pt-9">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_15%,rgba(255,255,255,0.42),transparent_70%)]"
+            />
+            <div className="relative z-10 h-[94%] w-[38%] max-w-[196px] translate-y-3 transition-transform duration-500 ease-out group-hover:translate-y-1">
               <Image
                 src={coverImage}
-                alt={`${title} main screen`}
+                alt={`${title} home interface`}
                 fill
-                sizes="(max-width: 768px) 44vw, 240px"
-                className="object-contain"
+                sizes="(max-width: 768px) 38vw, 210px"
+                className="object-contain object-bottom drop-shadow-[0_20px_32px_rgba(12,24,20,0.38)]"
               />
             </div>
-            <div className="relative aspect-[4/5] h-[94%] max-w-[47%] translate-y-2 overflow-hidden rounded-2xl border border-white/15 bg-[#111917] shadow-2xl">
+            <div className="relative z-10 h-[86%] w-[38%] max-w-[196px] translate-y-5 transition-transform duration-500 ease-out group-hover:translate-y-2">
               <Image
                 src={secondaryImage}
-                alt={`${title} secondary screen`}
+                alt={`${title} execution trace interface`}
                 fill
-                sizes="(max-width: 768px) 44vw, 240px"
-                className="object-contain"
+                sizes="(max-width: 768px) 38vw, 210px"
+                className="object-contain object-bottom drop-shadow-[0_20px_32px_rgba(12,24,20,0.38)]"
               />
             </div>
           </div>
         ) : (
-          <div className="flex h-full w-full items-center justify-center p-5 pt-13 sm:p-7 sm:pt-14">
-            <div
-              className={`relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-black/15 shadow-2xl transition-transform duration-500 ease-out group-hover:scale-[1.03] ${
-                tone === "mint"
-                  ? "bg-[#111514]"
-                  : tone === "lavender"
-                    ? "bg-[#121626]"
-                    : "bg-[#f7f7f2]"
-              }`}
-            >
-              <Image
-                src={coverImage}
-                alt={`${title} preview`}
-                fill
-                sizes="(max-width: 768px) 90vw, 640px"
-                className={
-                  coverFit === "cover-top"
-                    ? "object-cover object-top"
-                    : "object-contain"
-                }
-              />
-            </div>
+          <div className="relative h-full w-full transition-transform duration-500 ease-out group-hover:scale-[1.03]">
+            <Image
+              src={coverImage}
+              alt={`${title} preview`}
+              fill
+              sizes="(max-width: 768px) 92vw, 660px"
+              className={
+                coverFit === "cover-top"
+                  ? "object-cover object-top"
+                  : "object-cover object-center"
+              }
+            />
           </div>
         )}
       </div>

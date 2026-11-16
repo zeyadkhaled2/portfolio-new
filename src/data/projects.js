@@ -12,10 +12,10 @@ export const projects = [
     description:
       "React Native mobile app for practicing scored technical interviews, tracing JavaScript execution line by line, and exploring six interactive data-structure labs.",
     tags: ["React Native", "Expo SDK 58", "TypeScript", "AI Mentor"],
-    tone: "obsidian",
-    coverImage: "/projects/devreps/03-meet-devreps-home.png",
-    secondaryImage: "/projects/devreps/02-js-trace-live.png",
-    coverFit: "contain",
+    tone: "mint",
+    coverImage: "/projects/devreps/cover-phone-home.png",
+    secondaryImage: "/projects/devreps/cover-phone-trace.png",
+    coverFit: "mobile-pair",
     links: [
       { label: "GitHub Repo", href: "https://github.com/zeyadkhaled2/devreps-mobile" },
       { label: "Backend API", href: "https://github.com/zeyadkhaled2/devreps-api" },
@@ -124,7 +124,7 @@ export const projects = [
     tone: "peach",
     coverImage: "/projects/yefhamak/01-hero-desktop.png",
     secondaryImage: "/projects/yefhamak/05-seller-orders.png",
-    coverFit: "cover",
+    coverFit: "cover-top",
     links: [
       { label: "Live Website", href: "https://yefhamak.vercel.app" },
       { label: "Interactive Demo", href: "https://yefhamak.vercel.app/demo" },
@@ -217,10 +217,10 @@ export const projects = [
     role: "Computer Vision & ML Engineer · Remote (Saudi Arabia)",
     description:
       "Built remotely with a team in Saudi Arabia — an end-to-end vision system progressing from Conv3D + LSTM (5-Fold CV) to a Hybrid YOLOv8n + 3D CNN + Motion Channel + Focal Loss architecture (0.948 Val / 0.865 Test F1 Macro).",
-    tags: ["PyTorch", "YOLOv8n", "3D CNN", "TensorFlow", "Computer Vision"],
+    tags: ["PyTorch", "YOLOv8n", "3D CNN", "Computer Vision"],
     tone: "mint",
     coverImage: "/projects/crowd-anomaly/yolo_sample_detection.jpg",
-    coverFit: "cover",
+    coverFit: "cover-top",
     links: [
       {
         label: "GitHub Repo",

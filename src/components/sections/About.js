@@ -18,22 +18,24 @@ export default function About() {
 
           <Reveal delay={0.08} className="space-y-6 font-sans text-lg leading-relaxed text-ink-muted lg:col-span-7">
             <p className="text-xl leading-relaxed text-ink">
-              Placeholder bio — write two or three short paragraphs about who you are, what kind of
-              systems you enjoy architecting, and what you&apos;re focused on right now.
+              I&apos;m a software developer based in Cairo building web platforms, mobile apps, and
+              applied AI tools that turn complex workflows into calm, reliable products.
             </p>
             <p>
-              Keep it personal and specific. Mention what you care about in your craft — clean
-              interfaces, predictable engineering, and shipping products people genuinely enjoy using.
+              From shipping production Next.js booking sites and bilingual WhatsApp sales agents to
+              training multi-stage PyTorch computer-vision pipelines remotely with teams across Egypt
+              and Saudi Arabia, I care about clear architecture, responsive interfaces, and code
+              that holds up in production.
             </p>
             <div className="flex flex-wrap gap-3 pt-2">
               <span className="rounded-full border border-line px-4 py-1.5 font-mono text-xs text-ink">
                 Full-Stack Web
               </span>
               <span className="rounded-full border border-pink/60 px-4 py-1.5 font-mono text-xs text-pink">
-                Design Systems
+                React Native / Expo
               </span>
               <span className="rounded-full border border-mint/60 px-4 py-1.5 font-mono text-xs text-mint">
-                Product Craft
+                AI &amp; Computer Vision
               </span>
             </div>
           </Reveal>

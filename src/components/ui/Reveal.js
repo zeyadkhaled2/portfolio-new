@@ -84,51 +84,51 @@ export function HeroTimeline({ children, className = "" }) {
 
         tl.fromTo(
           "[data-hero='badge']",
-          { opacity: 0, y: 12, rotation: -14 },
+          { opacity: 0, y: 10, rotation: -12 },
           {
             opacity: 1,
             y: 0,
             rotation: -9,
-            duration: 0.55,
+            duration: 0.4,
             ease: "power3.out",
             clearProps: "opacity",
           }
         )
           .fromTo(
             "[data-hero='headline']",
-            { opacity: 0, y: 20 },
+            { opacity: 0, y: 16 },
             {
               opacity: 1,
               y: 0,
-              duration: 0.65,
+              duration: 0.45,
               ease: "power3.out",
               clearProps: "transform,opacity",
             },
-            "-=0.35"
+            "-=0.25"
           )
           .fromTo(
             "[data-hero='desc']",
-            { opacity: 0, y: 14 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.55,
-              ease: "power3.out",
-              clearProps: "transform,opacity",
-            },
-            "-=0.38"
-          )
-          .fromTo(
-            "[data-hero='cta']",
             { opacity: 0, y: 12 },
             {
               opacity: 1,
               y: 0,
-              duration: 0.5,
+              duration: 0.4,
               ease: "power3.out",
               clearProps: "transform,opacity",
             },
-            "-=0.35"
+            "-=0.28"
+          )
+          .fromTo(
+            "[data-hero='cta']",
+            { opacity: 0, y: 10 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.35,
+              ease: "power3.out",
+              clearProps: "transform,opacity",
+            },
+            "-=0.26"
           );
       });
     },
