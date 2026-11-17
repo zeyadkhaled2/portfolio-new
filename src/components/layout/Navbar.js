@@ -1,11 +1,12 @@
 import Link from "next/link";
+import MobileMenu from "@/components/layout/MobileMenu";
 import ThemeToggle from "@/components/layout/ThemeToggle";
 import { site, navLinks } from "@/data";
 
 export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-line/80 bg-canvas/90 backdrop-blur-md">
-      <div className="mx-auto flex h-18 w-full max-w-[1440px] items-center justify-between px-6 sm:px-10 lg:px-14">
+      <div className="relative mx-auto flex h-18 w-full max-w-[1440px] items-center justify-between px-6 sm:px-10 lg:px-14">
         <Link
           href="/"
           className="group inline-flex items-center gap-2.5 font-display text-xl font-medium tracking-tight text-ink transition-colors hover:text-accent"
@@ -31,7 +32,7 @@ export default function Navbar() {
           <span>{site.shortName}</span>
         </Link>
 
-        <nav className="flex items-center gap-6 sm:gap-8">
+        <nav aria-label="Main navigation" className="flex items-center gap-3 sm:gap-6">
           <ul className="hidden items-center gap-7 font-display text-sm font-medium uppercase tracking-[0.06em] text-ink-muted md:flex">
             {navLinks.map((link) => (
               <li key={link.href}>
@@ -45,14 +46,8 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <Link
-            href="/#work"
-            className="font-display text-sm font-medium uppercase tracking-[0.06em] text-ink transition-colors hover:text-accent md:hidden"
-          >
-            WORK
-          </Link>
-
           <ThemeToggle />
+          <MobileMenu links={navLinks} />
         </nav>
       </div>
     </header>

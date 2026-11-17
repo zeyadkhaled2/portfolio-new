@@ -18,6 +18,22 @@ export async function generateMetadata({ params }) {
   return {
     title: `${project.title} — Case Study`,
     description: project.description,
+    alternates: {
+      canonical: `/work/${project.slug}`,
+    },
+    openGraph: {
+      type: "article",
+      url: `/work/${project.slug}`,
+      title: `${project.title} — Case Study`,
+      description: project.description,
+      images: [{ url: project.coverImage, alt: project.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} — Case Study`,
+      description: project.description,
+      images: [project.coverImage],
+    },
   };
 }
 

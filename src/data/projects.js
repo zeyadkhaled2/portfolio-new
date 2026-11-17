@@ -10,7 +10,7 @@ export const projects = [
     year: "2026",
     role: "Mobile & Full-Stack Developer",
     description:
-      "React Native mobile app for practicing scored technical interviews, tracing JavaScript execution line by line, and exploring six interactive data-structure labs.",
+      "React Native mobile app for practicing scored technical interviews, tracing JavaScript execution line by line, and exploring interactive data-structure labs.",
     tags: ["React Native", "Expo SDK 58", "TypeScript", "AI Mentor"],
     tone: "mint",
     coverImage: "/projects/devreps/cover-phone-home.png",
@@ -64,7 +64,7 @@ export const projects = [
       },
     ],
     overview:
-      "DevReps is a React Native mobile application built for daily technical interview reps and hands-on computer science intuition. Instead of passive flashcards, learners predict JavaScript output and step through execution line by line, manipulate data structures directly across six interactive labs, and submit interview answers for scored Gemini-powered feedback.",
+      "DevReps is a React Native mobile application built for daily technical interview reps and hands-on computer science intuition. Instead of passive flashcards, learners predict JavaScript output and step through execution line by line, manipulate data structures directly across interactive labs, and submit interview answers for scored Gemini-powered feedback.",
     features: [
       {
         title: "Scored Interview Practice",
@@ -77,7 +77,7 @@ export const projects = [
           "Work through nine curated JavaScript puzzles across three difficulty tiers and step line by line through execution without spending AI requests.",
       },
       {
-        title: "Six Interactive CS Labs",
+        title: "Interactive CS Labs",
         detail:
           "Lift plates in Stacks (LIFO), run a Printer Queue, insert nodes into Linked Lists, watch Recursion frames unwind, traverse Trees, and fill Dynamic Programming tables.",
       },

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import CopyEmailButton from "@/components/sections/CopyEmailButton";
 import Reveal from "@/components/ui/Reveal";
 import { site } from "@/data";
 
@@ -93,12 +94,15 @@ export default function Contact() {
                     <p className="font-display text-xs font-semibold uppercase tracking-[0.06em] text-[#f6f2e7]/75">
                       Or email direct
                     </p>
-                    <a
-                      href={`mailto:${site.email}`}
-                      className="inline-block break-all font-pixel text-xs uppercase tracking-wider text-[#ece69a] underline decoration-[#ece69a]/45 underline-offset-4 transition-colors hover:text-white hover:decoration-white sm:text-sm"
-                    >
-                      {site.email}
-                    </a>
+                    <div className="flex flex-wrap items-center justify-center gap-3 pt-0.5">
+                      <a
+                        href={`mailto:${site.email}`}
+                        className="inline-block break-all font-pixel text-xs uppercase tracking-wider text-[#ece69a] underline decoration-[#ece69a]/45 underline-offset-4 transition-colors hover:text-white hover:decoration-white sm:text-sm"
+                      >
+                        {site.email}
+                      </a>
+                      <CopyEmailButton email={site.email} />
+                    </div>
                   </div>
                 </div>
               </div>

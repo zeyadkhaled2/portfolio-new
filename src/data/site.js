@@ -8,7 +8,7 @@ export const site = {
   name: "Ziad Khaled",
   shortName: "ziad",
   role: "Software Developer",
-  url: "https://ziadkhaled.vercel.app",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://ziadkhaled.vercel.app",
   heroHeadline: {
     prefix: "I'm a",
     highlight: "Software Developer",
