@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Reveal from "@/components/ui/Reveal";
+import Reveal, { ParallaxFloat, RevealGroup } from "@/components/ui/Reveal";
 import { projects, site } from "@/data";
 
 const backdropTones = {
@@ -29,7 +29,7 @@ function ProjectCard({
       className="group flex flex-col focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
     >
       <div
-        className={`relative aspect-[16/10] w-full overflow-hidden rounded-[20px] border border-line ${backdropTones[tone] ?? backdropTones.obsidian}`}
+        className={`relative aspect-[16/10] w-full overflow-hidden rounded-[28px] border border-line sm:rounded-[34px] ${backdropTones[tone] ?? backdropTones.obsidian}`}
       >
         {coverFit === "mobile-pair" && secondaryImage ? (
           <div className="relative flex h-full w-full items-end justify-center gap-5 px-6 pt-7 sm:gap-7 sm:px-10 sm:pt-9">
@@ -37,24 +37,34 @@ function ProjectCard({
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_15%,rgba(255,255,255,0.42),transparent_70%)]"
             />
-            <div className="relative z-10 h-[94%] w-[38%] max-w-[196px] translate-y-3 transition-transform duration-500 ease-out group-hover:translate-y-1">
-              <Image
-                src={coverImage}
-                alt={`${title} home interface`}
-                fill
-                sizes="(max-width: 768px) 38vw, 210px"
-                className="object-contain object-bottom drop-shadow-[0_20px_32px_rgba(12,24,20,0.38)]"
-              />
-            </div>
-            <div className="relative z-10 h-[86%] w-[38%] max-w-[196px] translate-y-5 transition-transform duration-500 ease-out group-hover:translate-y-2">
-              <Image
-                src={secondaryImage}
-                alt={`${title} execution trace interface`}
-                fill
-                sizes="(max-width: 768px) 38vw, 210px"
-                className="object-contain object-bottom drop-shadow-[0_20px_32px_rgba(12,24,20,0.38)]"
-              />
-            </div>
+            <ParallaxFloat
+              offset={-8}
+              className="relative z-10 h-[94%] w-[38%] max-w-[196px]"
+            >
+              <div className="relative h-full w-full translate-y-3 transition-transform duration-500 ease-out group-hover:translate-y-1">
+                <Image
+                  src={coverImage}
+                  alt={`${title} home interface`}
+                  fill
+                  sizes="(max-width: 768px) 38vw, 210px"
+                  className="object-contain object-bottom drop-shadow-[0_20px_32px_rgba(12,24,20,0.38)]"
+                />
+              </div>
+            </ParallaxFloat>
+            <ParallaxFloat
+              offset={8}
+              className="relative z-10 h-[86%] w-[38%] max-w-[196px]"
+            >
+              <div className="relative h-full w-full translate-y-5 transition-transform duration-500 ease-out group-hover:translate-y-2">
+                <Image
+                  src={secondaryImage}
+                  alt={`${title} execution trace interface`}
+                  fill
+                  sizes="(max-width: 768px) 38vw, 210px"
+                  className="object-contain object-bottom drop-shadow-[0_20px_32px_rgba(12,24,20,0.38)]"
+                />
+              </div>
+            </ParallaxFloat>
           </div>
         ) : (
           <div className="relative h-full w-full transition-transform duration-500 ease-out group-hover:scale-[1.03]">
@@ -97,7 +107,7 @@ function ProjectCard({
             {cardTags.map((tag) => (
               <li
                 key={tag}
-                className="rounded-[6px] border border-accent/70 px-2.5 py-1 font-mono text-[11px] leading-none text-ink/90 whitespace-nowrap transition-colors duration-200 group-hover:border-accent"
+                className="rounded-full border border-accent/70 px-3 py-1 font-mono text-[11px] leading-none text-ink/90 whitespace-nowrap transition-colors duration-200 group-hover:border-accent"
               >
                 {tag}
               </li>
@@ -132,13 +142,13 @@ export default function Projects() {
           </header>
         </Reveal>
 
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:gap-12">
-          {projects.map((project, i) => (
-            <Reveal key={project.slug} delay={i * 0.08}>
+        <RevealGroup className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:gap-12">
+          {projects.map((project) => (
+            <div key={project.slug} data-reveal-item>
               <ProjectCard {...project} />
-            </Reveal>
+            </div>
           ))}
-        </div>
+        </RevealGroup>
 
         <Reveal delay={0.1}>
           <a

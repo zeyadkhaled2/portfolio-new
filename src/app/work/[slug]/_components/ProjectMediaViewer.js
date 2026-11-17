@@ -1,20 +1,57 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { gsap, useGSAP } from "@/lib/gsap";
 
 export default function ProjectMediaViewer({ title, video, screenshots }) {
   const [mode, setMode] = useState(video ? "video" : "gallery");
   const [activeIndex, setActiveIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const stageRef = useRef(null);
+  const hasInteractedRef = useRef(false);
 
   const activeShot = screenshots[activeIndex] ?? screenshots[0];
 
+  useGSAP(
+    () => {
+      if (!hasInteractedRef.current || !stageRef.current) return;
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduce) return;
+
+      gsap.fromTo(
+        stageRef.current,
+        { autoAlpha: 0.45, y: 8 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.32,
+          ease: "power2.out",
+          overwrite: true,
+          clearProps: "transform,opacity,visibility",
+        }
+      );
+    },
+    { scope: stageRef, dependencies: [activeIndex, mode] }
+  );
+
+  function selectMode(nextMode) {
+    hasInteractedRef.current = true;
+    setMode(nextMode);
+  }
+
+  function selectIndex(idx) {
+    hasInteractedRef.current = true;
+    setActiveIndex(idx);
+  }
+
   function prevShot() {
+    hasInteractedRef.current = true;
     setActiveIndex((i) => (i - 1 + screenshots.length) % screenshots.length);
   }
 
   function nextShot() {
+    hasInteractedRef.current = true;
     setActiveIndex((i) => (i + 1) % screenshots.length);
   }
 
@@ -41,7 +78,7 @@ export default function ProjectMediaViewer({ title, video, screenshots }) {
           {video && (
             <button
               type="button"
-              onClick={() => setMode("video")}
+              onClick={() => selectMode("video")}
               className={`cursor-pointer rounded-full px-4 py-1.5 font-mono text-xs uppercase tracking-[0.08em] transition-colors ${
                 mode === "video"
                   ? "bg-accent text-accent-ink"
@@ -53,7 +90,7 @@ export default function ProjectMediaViewer({ title, video, screenshots }) {
           )}
           <button
             type="button"
-            onClick={() => setMode("gallery")}
+            onClick={() => selectMode("gallery")}
             className={`cursor-pointer rounded-full px-4 py-1.5 font-mono text-xs uppercase tracking-[0.08em] transition-colors ${
               mode === "gallery"
                 ? "bg-accent text-accent-ink"
@@ -103,7 +140,7 @@ export default function ProjectMediaViewer({ title, video, screenshots }) {
 
       {/* Main Stage */}
       {mode === "video" && video ? (
-        <div className="overflow-hidden rounded-[24px] border border-line bg-[#0d0d0f]">
+        <div ref={stageRef} className="overflow-hidden rounded-[32px] border border-line bg-[#0d0d0f]">
           <div
             className={`relative w-full bg-[#0d0d0f] ${
               video.portrait ? "h-[480px] sm:h-[620px]" : "aspect-video bg-black"
@@ -128,7 +165,7 @@ export default function ProjectMediaViewer({ title, video, screenshots }) {
         </div>
       ) : (
         <div className="space-y-4">
-          <div className="overflow-hidden rounded-[24px] border border-line bg-surface">
+          <div ref={stageRef} className="overflow-hidden rounded-[32px] border border-line bg-surface">
             <button
               type="button"
               onClick={() => setLightboxOpen(true)}
@@ -137,7 +174,7 @@ export default function ProjectMediaViewer({ title, video, screenshots }) {
             >
               <Image
                 src={activeShot.src}
-                alt={`${title} — ${activeShot.title}`}
+                alt={`${title} · ${activeShot.title}`}
                 fill
                 sizes="(max-width: 768px) 95vw, 1200px"
                 className="object-contain p-2 transition-transform duration-300 group-hover:scale-[1.01] sm:p-5"
@@ -168,8 +205,8 @@ export default function ProjectMediaViewer({ title, video, screenshots }) {
                   <button
                     key={shot.src}
                     type="button"
-                    onClick={() => setActiveIndex(idx)}
-                    className={`group relative cursor-pointer overflow-hidden rounded-xl border text-left transition-all ${
+                    onClick={() => selectIndex(idx)}
+                    className={`group relative cursor-pointer overflow-hidden rounded-2xl border text-left transition-all ${
                       isActive
                         ? "border-accent ring-2 ring-accent/40"
                         : "border-line opacity-75 hover:border-ink/40 hover:opacity-100"

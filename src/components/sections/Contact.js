@@ -10,14 +10,14 @@ export default function Contact() {
         <Reveal>
           <div className="mx-auto max-w-4xl">
             {/* Retro CRT Monitor integrating tami.agency's "LET'S WORK TOGETHER" + portrait slot */}
-            <div className="relative rounded-[30px] border border-white/10 bg-[#1a1a1d] p-3.5 shadow-[0_32px_90px_rgba(0,0,0,0.45)] sm:p-6">
+            <div className="relative rounded-[38px] border border-white/10 bg-[#1a1a1d] p-3.5 shadow-[0_32px_90px_rgba(0,0,0,0.45)] sm:p-6">
               <div
                 aria-hidden="true"
-                className="pointer-events-none absolute -inset-4 -z-10 rounded-[40px] bg-accent/15 blur-2xl"
+                className="pointer-events-none absolute -inset-4 -z-10 rounded-[46px] bg-accent/15 blur-2xl"
               />
 
               {/* Inner phosphor CRT screen */}
-              <div className="crt-vignette relative overflow-hidden rounded-[22px] border border-[#3a47b8]/50 bg-[radial-gradient(ellipse_at_center,#2537c2_0%,#172285_64%,#0d134d_100%)] px-6 py-8 text-center sm:px-10 sm:py-11 md:px-12">
+              <div className="crt-vignette relative overflow-hidden rounded-[28px] border border-[#3a47b8]/50 bg-[radial-gradient(ellipse_at_center,#2537c2_0%,#172285_64%,#0d134d_100%)] px-6 py-8 text-center sm:px-10 sm:py-11 md:px-12">
                 <div className="crt-scanlines pointer-events-none absolute inset-0 opacity-65" />
 
                 <div className="relative z-10 flex flex-col gap-7 sm:gap-8">
@@ -35,7 +35,7 @@ export default function Contact() {
                     </div>
 
                     {/* Portrait Inset Slot (user drops photo via site.portraitUrl) */}
-                    <div className="relative aspect-[4/3] w-48 shrink-0 overflow-hidden rounded-[18px] border-2 border-[#7e81f4]/75 bg-[#0c1145]/90 shadow-[0_0_24px_rgba(126,129,244,0.3)] sm:w-52 md:w-56">
+                    <div className="relative aspect-[4/3] w-48 shrink-0 overflow-hidden rounded-[24px] border-2 border-[#7e81f4]/75 bg-[#0c1145]/90 shadow-[0_0_24px_rgba(126,129,244,0.3)] sm:w-52 md:w-56">
                       {site.portraitUrl ? (
                         <>
                           <Image

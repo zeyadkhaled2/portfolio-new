@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Reveal from "@/components/ui/Reveal";
+import Reveal, { RevealGroup } from "@/components/ui/Reveal";
 import { experience } from "@/data";
 
 export default function Experience() {
@@ -17,10 +17,10 @@ export default function Experience() {
           </header>
         </Reveal>
 
-        <ol className="divide-y divide-line border-y border-line">
+        <RevealGroup as="ol" stagger={0.1} className="divide-y divide-line border-y border-line">
           {experience.map((job, i) => (
-            <li key={`${job.period}-${i}`} className="py-7 sm:py-9">
-              <Reveal delay={i * 0.08} className="grid gap-3 md:grid-cols-12 md:items-baseline md:gap-8">
+            <li key={`${job.period}-${i}`} data-reveal-item className="py-7 sm:py-9">
+              <div className="grid gap-3 md:grid-cols-12 md:items-baseline md:gap-8">
                 <p className="font-mono text-sm uppercase tracking-[0.08em] text-ink-muted md:col-span-3">
                   {job.period}
                 </p>
@@ -47,10 +47,10 @@ export default function Experience() {
                     </div>
                   )}
                 </div>
-              </Reveal>
+              </div>
             </li>
           ))}
-        </ol>
+        </RevealGroup>
       </div>
     </section>
   );

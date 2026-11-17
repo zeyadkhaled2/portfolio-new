@@ -1,6 +1,7 @@
 import Link from "next/link";
 import MobileMenu from "@/components/layout/MobileMenu";
 import ThemeToggle from "@/components/layout/ThemeToggle";
+import { ScrollProgressBar } from "@/components/ui/Reveal";
 import { site, navLinks } from "@/data";
 
 export default function Navbar() {
@@ -50,6 +51,7 @@ export default function Navbar() {
           <MobileMenu links={navLinks} />
         </nav>
       </div>
+      <ScrollProgressBar />
     </header>
   );
 }

@@ -38,7 +38,11 @@ export default function Hero() {
           </Button>
         </div>
 
-        <div className="mt-16 h-px w-full bg-line sm:mt-24" aria-hidden="true" />
+        <div
+          data-hero="rule"
+          className="mt-16 h-px w-full bg-line sm:mt-24"
+          aria-hidden="true"
+        />
       </HeroTimeline>
     </section>
   );

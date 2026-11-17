@@ -1,4 +1,4 @@
-import Reveal from "@/components/ui/Reveal";
+import Reveal, { RevealGroup } from "@/components/ui/Reveal";
 import { skills } from "@/data";
 
 const accentDot = {
@@ -23,12 +23,12 @@ export default function Skills() {
           </header>
         </Reveal>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {skills.map(({ group, accent, items }, i) => (
-            <Reveal
+        <RevealGroup stagger={0.08} className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {skills.map(({ group, accent, items }) => (
+            <div
               key={group}
-              delay={i * 0.07}
-              className="rounded-[20px] border border-line bg-surface p-6 transition-colors duration-200 hover:border-accent/60"
+              data-reveal-item
+              className="rounded-[28px] border border-line bg-surface p-6 transition-colors duration-200 hover:border-accent/60"
             >
               <div className="mb-5 flex items-center gap-2.5">
                 <span className={`h-2.5 w-2.5 rounded-full ${accentDot[accent] ?? "bg-accent"}`} />
@@ -46,9 +46,9 @@ export default function Skills() {
                   </li>
                 ))}
               </ul>
-            </Reveal>
+            </div>
           ))}
-        </div>
+        </RevealGroup>
       </div>
     </section>
   );

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ProjectMediaViewer from "./_components/ProjectMediaViewer";
 import Button from "@/components/ui/Button";
+import Reveal, { RevealGroup } from "@/components/ui/Reveal";
 import { projects, site } from "@/data";
 
 const featureDotColors = ["bg-accent", "bg-pink", "bg-mint", "bg-yellow"];
@@ -40,10 +41,10 @@ export async function generateMetadata({ params }) {
 function ProjectDetailSkeleton() {
   return (
     <div className="mx-auto w-full max-w-[1440px] px-6 pt-10 pb-24 sm:px-10 sm:pt-16 lg:px-14">
-      <div className="h-4 w-40 rounded bg-surface" />
-      <div className="mt-10 h-14 w-72 rounded-xl bg-surface" />
-      <div className="mt-4 h-7 w-full max-w-2xl rounded-lg bg-surface" />
-      <div className="mt-12 aspect-video w-full rounded-[24px] border border-line bg-surface" />
+      <div className="h-4 w-40 rounded-full bg-surface" />
+      <div className="mt-10 h-14 w-72 rounded-2xl bg-surface" />
+      <div className="mt-4 h-7 w-full max-w-2xl rounded-xl bg-surface" />
+      <div className="mt-12 aspect-video w-full rounded-[32px] border border-line bg-surface" />
     </div>
   );
 }
@@ -115,11 +116,11 @@ async function ProjectDetailContent({ params }) {
           />
         </section>
 
-        <div className="my-16 h-px w-full bg-line sm:my-20" aria-hidden="true" />
+        <Reveal variant="rule" className="my-16 sm:my-20" />
 
         {/* README / Overview & What It Does */}
         <section className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-5">
+          <Reveal className="lg:col-span-5">
             <span className="font-mono text-xs uppercase tracking-[0.18em] text-accent">
               README · Overview
             </span>
@@ -129,13 +130,14 @@ async function ProjectDetailContent({ params }) {
             <p className="mt-5 font-sans text-lg leading-relaxed text-ink-muted">
               {project.overview}
             </p>
-          </div>
+          </Reveal>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:col-span-7">
+          <RevealGroup stagger={0.08} className="grid gap-5 sm:grid-cols-2 lg:col-span-7">
             {project.features.map((feat, idx) => (
               <div
                 key={feat.title}
-                className="rounded-[20px] border border-line bg-surface p-6 transition-colors hover:border-accent/50"
+                data-reveal-item
+                className="rounded-[28px] border border-line bg-surface p-6 transition-colors hover:border-accent/50"
               >
                 <div className="mb-3 flex items-center gap-2.5">
                   <span
@@ -152,23 +154,25 @@ async function ProjectDetailContent({ params }) {
                 </p>
               </div>
             ))}
-          </div>
+          </RevealGroup>
         </section>
 
-        <div className="my-16 h-px w-full bg-line sm:my-20" aria-hidden="true" />
+        <Reveal variant="rule" className="my-16 sm:my-20" />
 
         {/* Engineering Challenge -> Decision -> Result */}
         {project.challenge && (
           <>
             <section aria-label="Engineering challenge and decisions">
-              <span className="font-mono text-xs uppercase tracking-[0.18em] text-accent">
-                Behind the Build
-              </span>
-              <h2 className="mt-2 font-display text-3xl font-bold uppercase tracking-[0.02em] text-ink sm:text-4xl">
-                Trade-Offs &amp; Decisions
-              </h2>
-              <div className="mt-8 grid gap-5 md:grid-cols-3">
-                <div className="rounded-[20px] border border-line bg-surface p-6">
+              <Reveal>
+                <span className="font-mono text-xs uppercase tracking-[0.18em] text-accent">
+                  Behind the Build
+                </span>
+                <h2 className="mt-2 font-display text-3xl font-bold uppercase tracking-[0.02em] text-ink sm:text-4xl">
+                  Trade-Offs &amp; Decisions
+                </h2>
+              </Reveal>
+              <RevealGroup stagger={0.09} className="mt-8 grid gap-5 md:grid-cols-3">
+                <div data-reveal-item className="rounded-[28px] border border-line bg-surface p-6">
                   <p className="font-mono text-xs uppercase tracking-[0.14em] text-pink">
                     01 · Problem
                   </p>
@@ -176,7 +180,7 @@ async function ProjectDetailContent({ params }) {
                     {project.challenge.problem}
                   </p>
                 </div>
-                <div className="rounded-[20px] border border-line bg-surface p-6">
+                <div data-reveal-item className="rounded-[28px] border border-line bg-surface p-6">
                   <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent">
                     02 · Approach
                   </p>
@@ -184,7 +188,7 @@ async function ProjectDetailContent({ params }) {
                     {project.challenge.decision}
                   </p>
                 </div>
-                <div className="rounded-[20px] border border-line bg-surface p-6">
+                <div data-reveal-item className="rounded-[28px] border border-line bg-surface p-6">
                   <p className="font-mono text-xs uppercase tracking-[0.14em] text-mint">
                     03 · Outcome
                   </p>
@@ -192,10 +196,10 @@ async function ProjectDetailContent({ params }) {
                     {project.challenge.result}
                   </p>
                 </div>
-              </div>
+              </RevealGroup>
             </section>
 
-            <div className="my-16 h-px w-full bg-line sm:my-20" aria-hidden="true" />
+            <Reveal variant="rule" className="my-16 sm:my-20" />
           </>
         )}
 
@@ -239,7 +243,7 @@ async function ProjectDetailContent({ params }) {
             </div>
 
             {project.readmeCommands?.length > 0 && (
-              <div className="rounded-[20px] border border-line bg-surface p-6">
+              <div className="rounded-[28px] border border-line bg-surface p-6">
                 <h3 className="font-display text-lg font-semibold uppercase tracking-[0.04em] text-ink">
                   Workflow &amp; Commands
                 </h3>
@@ -252,7 +256,7 @@ async function ProjectDetailContent({ params }) {
                       <span className="font-sans text-sm text-ink-muted">
                         {cmd.label}
                       </span>
-                      <code className="rounded-lg border border-line bg-canvas px-3 py-1 font-mono text-xs text-accent">
+                      <code className="rounded-xl border border-line bg-canvas px-3 py-1 font-mono text-xs text-accent">
                         {cmd.code}
                       </code>
                     </div>

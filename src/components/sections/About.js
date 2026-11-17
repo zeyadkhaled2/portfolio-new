@@ -31,7 +31,7 @@ export default function About() {
             </p>
 
             {/* Education card */}
-            <div className="rounded-[18px] border border-line bg-surface p-5">
+            <div className="rounded-[26px] border border-line bg-surface p-5 sm:p-6">
               <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-accent">
                 Education
               </p>
