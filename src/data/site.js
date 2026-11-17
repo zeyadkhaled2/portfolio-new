@@ -24,7 +24,7 @@ export const site = {
     school: "Faculty of Computer & Information Sciences (FCIS), Ain Shams University",
   },
   email: "kziad834@gmail.com",
-  portraitUrl: "/images/portrait.jpg",
+  portraitUrl: "/images/portrait-studio.jpg",
   year: 2026,
   socials: [
     { label: "GitHub", href: "https://github.com/zeyadkhaled2" },
