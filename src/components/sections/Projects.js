@@ -92,12 +92,12 @@ function ProjectCard({
         {cardTags.length > 0 && (
           <ul
             aria-label={`${title} tags`}
-            className="mt-1.5 flex flex-wrap items-center gap-2.5"
+            className="mt-1 flex flex-wrap items-center gap-2"
           >
             {cardTags.map((tag) => (
               <li
                 key={tag}
-                className="rounded-[8px] border border-accent px-4 py-2 font-mono text-sm leading-none text-ink whitespace-nowrap"
+                className="rounded-[6px] border border-accent/70 px-2.5 py-1 font-mono text-[11px] leading-none text-ink/90 whitespace-nowrap transition-colors duration-200 group-hover:border-accent"
               >
                 {tag}
               </li>
