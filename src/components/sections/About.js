@@ -14,20 +14,34 @@ export default function About() {
               Hi, I&apos;m <span className="text-accent">{site.shortName}</span>
             </h2>
             <p className="mt-4 font-mono text-sm text-ink-muted">{site.locationBadge}</p>
+            <p className="mt-2 font-mono text-xs text-mint">{site.availability}</p>
           </Reveal>
 
           <Reveal delay={0.08} className="space-y-6 font-sans text-lg leading-relaxed text-ink-muted lg:col-span-7">
             <p className="text-xl leading-relaxed text-ink">
-              I&apos;m a software developer based in Cairo building web platforms, mobile apps, and
-              applied AI tools that turn complex workflows into calm, reliable products.
+              I&apos;m a Computer Science graduate from Ain Shams University based in Cairo,
+              building web platforms, mobile apps, and applied AI systems that turn complex
+              workflows into calm, reliable products.
             </p>
             <p>
-              From shipping production Next.js booking sites and bilingual WhatsApp sales agents to
-              training multi-stage PyTorch computer-vision pipelines remotely with teams across Egypt
-              and Saudi Arabia, I care about clear architecture, responsive interfaces, and code
-              that holds up in production.
+              From shipping production Next.js booking sites and bilingual FastAPI/WhatsApp sales
+              agents to training multi-stage PyTorch computer-vision pipelines remotely with teams
+              across Egypt and Saudi Arabia, I care about clear architecture, automated testing, and
+              code that holds up in production.
             </p>
-            <div className="flex flex-wrap gap-3 pt-2">
+
+            {/* Education card */}
+            <div className="rounded-[18px] border border-line bg-surface p-5">
+              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-accent">
+                Education
+              </p>
+              <p className="mt-1.5 font-display text-lg font-semibold text-ink">
+                {site.education.degree}
+              </p>
+              <p className="mt-0.5 font-sans text-sm text-ink-muted">{site.education.school}</p>
+            </div>
+
+            <div className="flex flex-wrap gap-3 pt-1">
               <span className="rounded-full border border-line px-4 py-1.5 font-mono text-xs text-ink">
                 Full-Stack Web
               </span>

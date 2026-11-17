@@ -4,32 +4,41 @@
 
 export const experience = [
   {
-    period: "2026 · REMOTE",
+    period: "NOV 2026 · REMOTE",
     role: "Computer Vision & ML Engineer",
     company: "Remote Team (Saudi Arabia)",
+    caseStudies: [
+      { label: "Crowd Anomaly Detection", href: "/work/crowd-anomaly-detection" },
+    ],
     summary:
-      "Worked remotely with a team in Saudi Arabia on Crowd Anomaly Detection — a multi-stage deep learning pipeline for crowd violence detection, HAJJv2 abnormal behavior recognition (YOLOv8n + Hybrid 3D CNN + Motion Channel), and density estimation.",
+      "Worked remotely with a team in Saudi Arabia on Crowd Anomaly Detection — progressing from Conv3D + LSTM (5-Fold CV) to a Hybrid YOLOv8n + 3D CNN + Motion Channel + Focal Loss pipeline (0.948 Val / 0.865 Test F1 Macro).",
   },
   {
-    period: "2026 · REMOTE",
+    period: "JUL — NOV 2026",
+    role: "Full-Stack & AI Product Developer",
+    company: "Independent Builds",
+    caseStudies: [
+      { label: "DevReps", href: "/work/devreps" },
+      { label: "Yefhamak", href: "/work/yefhamak" },
+    ],
+    summary:
+      "Built and shipped DevReps (Expo SDK 58 / React Native + Express/Prisma API) and Yefhamak (bilingual Next.js frontend + FastAPI/PostgreSQL/Docker AI sales agent with RAG & 74 automated tests).",
+  },
+  {
+    period: "AUG 2025 — JUN 2026 · REMOTE",
     role: "Full-Stack Web Developer",
     company: "Egypt bnbn Travel (Remote)",
+    caseStudies: [{ label: "Egypt bnbn Travel", href: "/work/egyptbnbn-travel" }],
     summary:
-      "Built and shipped the production Next.js 15 & TypeScript travel booking platform (egyptbnbntravel.com), featuring multi-category tour catalogs, dynamic itineraries, Formik booking flows, Schema.org SEO, and a Google Sheets reviews API.",
-  },
-  {
-    period: "2025 — NOW",
-    role: "Software Developer",
-    company: "Independent & Product Builds",
-    summary:
-      "Designing and shipping full-stack web and mobile products including DevReps (Expo / React Native) and Yefhamak (AI WhatsApp commerce assistant).",
+      "Built and shipped the production Next.js 15 & TypeScript travel booking platform (egyptbnbntravel.com) covering 19 tours across 5 categories, dynamic itineraries, Formik booking flows, Schema.org SEO, and a Google Sheets reviews API.",
   },
   {
     period: "2023 — 2025",
     role: "Frontend & Full-Stack Developer",
     company: "Projects & Freelance",
+    caseStudies: [],
     summary:
-      "Built responsive React and Next.js interfaces, REST APIs, and PostgreSQL-backed workflows focused on clarity and reliability.",
+      "Built responsive React and Next.js interfaces, REST APIs, and PostgreSQL-backed workflows focused on clarity, performance, and reliability.",
   },
 ];
 
@@ -47,11 +56,11 @@ export const skills = [
   {
     group: "Backend & AI / ML",
     accent: "mint",
-    items: ["Node.js", "PostgreSQL", "PyTorch", "YOLOv8 / OpenCV", "AI Agents / RAG"],
+    items: ["FastAPI", "Node.js / Express", "PostgreSQL / Prisma", "PyTorch / YOLOv8", "AI Agents & RAG"],
   },
   {
-    group: "Tools",
+    group: "Tools & DevOps",
     accent: "yellow",
-    items: ["Git", "GitHub", "Vercel", "Figma"],
+    items: ["Docker", "GitHub Actions", "Git", "Vercel", "Figma"],
   },
 ];

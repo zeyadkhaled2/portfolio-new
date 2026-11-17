@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Reveal from "@/components/ui/Reveal";
 import { experience } from "@/data";
 
@@ -31,6 +32,20 @@ export default function Experience() {
                   <p className="mt-2.5 max-w-2xl font-sans text-base leading-relaxed text-ink-muted">
                     {job.summary}
                   </p>
+                  {job.caseStudies?.length > 0 && (
+                    <div className="mt-4 flex flex-wrap gap-2.5">
+                      {job.caseStudies.map((cs) => (
+                        <Link
+                          key={cs.href}
+                          href={cs.href}
+                          className="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-3.5 py-1 font-mono text-xs text-ink transition-colors hover:border-accent hover:text-accent"
+                        >
+                          <span>{cs.label}</span>
+                          <span aria-hidden="true">→</span>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </Reveal>
             </li>

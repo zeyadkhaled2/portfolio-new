@@ -7,7 +7,7 @@ export const projects = [
     slug: "devreps",
     title: "DevReps",
     subtitle: "Technical interview practice, live JS execution tracing & interactive CS labs",
-    year: "2026",
+    year: "Jul – Nov 2026",
     role: "Mobile & Full-Stack Developer",
     description:
       "React Native mobile app for practicing scored technical interviews, tracing JavaScript execution line by line, and exploring interactive data-structure labs.",
@@ -17,30 +17,34 @@ export const projects = [
     secondaryImage: "/projects/devreps/cover-phone-trace.png",
     coverFit: "mobile-pair",
     links: [
-      { label: "GitHub Repo", href: "https://github.com/zeyadkhaled2/devreps-mobile" },
+      { label: "Mobile Repo", href: "https://github.com/zeyadkhaled2/devreps-mobile" },
       { label: "Backend API", href: "https://github.com/zeyadkhaled2/devreps-api" },
     ],
     video: {
       src: "/projects/devreps/devreps-linkedin.mp4",
       poster: "/projects/devreps/03-meet-devreps-home.png",
       portrait: true,
-      caption: "DevReps showcase reel — JS puzzles, live execution tracing, CS labs, and interview practice.",
+      caption:
+        "DevReps showcase reel — JS puzzles, live execution tracing, CS labs, and interview practice.",
     },
     screenshots: [
       {
         src: "/projects/devreps/03-meet-devreps-home.png",
         title: "Home Hub",
-        caption: "Main navigation across JS challenges, interview practice, CS labs, AI Mentor, and progress.",
+        caption:
+          "Main navigation across JS challenges, interview practice, CS labs, AI Mentor, and progress.",
       },
       {
         src: "/projects/devreps/01-js-challenge-puzzle.png",
         title: "JS Output Puzzle",
-        caption: "Nine curated JavaScript puzzles across three difficulty levels running 100% locally.",
+        caption:
+          "Nine curated JavaScript puzzles across three difficulty levels running 100% locally.",
       },
       {
         src: "/projects/devreps/02-js-trace-live.png",
         title: "Live Execution Trace",
-        caption: "Step-by-step code execution inspector showing console output and variable state.",
+        caption:
+          "Step-by-step code execution inspector showing console output and variable state.",
       },
       {
         src: "/projects/devreps/04-stacks-lifo-lab.png",
@@ -60,11 +64,20 @@ export const projects = [
       {
         src: "/projects/devreps/07-six-labs-overview.png",
         title: "Dynamic Programming & Labs",
-        caption: "Solve DP problems like climbing stairs and exact change by filling the table step by step.",
+        caption:
+          "Solve DP problems like climbing stairs and exact change by filling the table step by step.",
       },
     ],
     overview:
-      "DevReps is a React Native mobile application built for daily technical interview reps and hands-on computer science intuition. Instead of passive flashcards, learners predict JavaScript output and step through execution line by line, manipulate data structures directly across interactive labs, and submit interview answers for scored Gemini-powered feedback.",
+      "DevReps is a React Native mobile application and Express/PostgreSQL API built for daily technical interview reps and hands-on computer science intuition. Instead of passive flashcards, learners predict JavaScript output and step through execution line by line, manipulate data structures directly across interactive labs, and submit interview answers for scored Gemini-powered feedback.",
+    challenge: {
+      problem:
+        "Running every coding drill through a remote LLM adds latency, exhausts API quota, and breaks offline practice on mobile.",
+      decision:
+        "Embedded all 9 curated JavaScript trace puzzles and interactive CS labs on-device with Expo SecureStore, while isolating Gemini interview scoring and Mentor chat in a separate Express + Prisma API with draft recovery on HTTP 429 or network failure.",
+      result:
+        "Instant offline tracing and lab feedback paired with persistent account history, streaks, and CI-verified test suites across both mobile and backend repositories.",
+    },
     features: [
       {
         title: "Scored Interview Practice",
@@ -88,39 +101,38 @@ export const projects = [
       },
     ],
     architecture: [
-      "Built with Expo SDK 58, React Native 0.88.1, React 19.3, and TypeScript.",
-      "Organized into feature modules (src/features/), stack/tab navigation (src/app/navigation/), and shared UI/API clients (src/shared/).",
-      "Offline-first JS puzzles and CS labs ship embedded in the app and store results locally with Expo SecureStore.",
-      "Interview evaluation and Mentor chat connect to the companion DevReps API backed by PostgreSQL and Gemini.",
-      "Verified with Prettier formatting checks, TypeScript (tsc --noEmit), Node regression tests, and GitHub Actions CI.",
+      "Mobile App (devreps-mobile): Expo SDK 58, React Native 0.88.1, React 19.3, TypeScript, TanStack Query, Zustand, and React Hook Form + Zod.",
+      "Feature-sliced layout under src/features/, React Navigation stack/tab flows under src/app/navigation/, and Expo SecureStore token persistence.",
+      "Backend API (devreps-api): Express + TypeScript with PostgreSQL, Prisma ORM, JWT auth, and modular routes under src/modules/ (auth, practice, attempts, streak, chat).",
+      "Gemini integration with HTTP 429 rate-limit handling plus mocked Prisma/Gemini tests and GitHub Actions CI on both repos.",
     ],
     techStack: [
       "React Native",
       "Expo SDK 58",
       "TypeScript",
+      "Express",
+      "PostgreSQL",
+      "Prisma",
       "TanStack Query",
       "Zustand",
-      "React Navigation",
-      "React Hook Form",
       "Zod",
-      "PostgreSQL",
       "Gemini API",
     ],
     readmeCommands: [
-      { label: "Install dependencies", code: "npm ci" },
-      { label: "Start Expo dev server", code: "npm start" },
-      { label: "Run format, typecheck & tests", code: "npm run check" },
+      { label: "Mobile — Install & start", code: "npm ci && npm start" },
+      { label: "Mobile — Checks & tests", code: "npm run check" },
+      { label: "API — Migrate & run", code: "npm run db:migrate && npm run dev" },
     ],
   },
   {
     slug: "yefhamak",
     title: "Yefhamak (يفهمك)",
     subtitle: "24/7 Egyptian Arabic WhatsApp AI sales assistant & merchant order workspace",
-    year: "2026",
+    year: "Oct – Nov 2026",
     role: "Product & Full-Stack Developer",
     description:
-      "Bilingual AI sales assistant that chats with shoppers on WhatsApp in Egyptian Arabic and Franco-Arabic, checks live catalog stock, and creates structured merchant orders.",
-    tags: ["Next.js", "AI Agents", "WhatsApp", "Egyptian Arabic"],
+      "Bilingual AI sales assistant that chats with shoppers in Egyptian Arabic and Franco-Arabic, reserves live inventory in PostgreSQL, and creates structured merchant orders.",
+    tags: ["Next.js", "FastAPI", "PostgreSQL", "AI Agents"],
     tone: "peach",
     coverImage: "/projects/yefhamak/01-hero-desktop.png",
     secondaryImage: "/projects/yefhamak/05-seller-orders.png",
@@ -128,6 +140,9 @@ export const projects = [
     links: [
       { label: "Live Website", href: "https://yefhamak.vercel.app" },
       { label: "Interactive Demo", href: "https://yefhamak.vercel.app/demo" },
+      { label: "Watch Demo", href: "https://www.youtube.com/watch?v=gR0TXw6iMhM" },
+      { label: "Frontend Repo", href: "https://github.com/zeyadkhaled2/yefhamak" },
+      { label: "Backend Repo", href: "https://github.com/zeyadkhaled2/yefhamak-backend" },
     ],
     video: {
       src: "/projects/yefhamak/demo.mp4",
@@ -163,49 +178,57 @@ export const projects = [
       },
     ],
     overview:
-      "Yefhamak (يفهمك) solves missed late-night WhatsApp messages and lost chat orders for Egyptian e-commerce merchants. Instead of rigid keyword bots, it converses naturally in Egyptian dialect and Franco-Arabic, looks up live product prices, sizes, and stock, answers policy questions via RAG, collects delivery details, and forwards confirmed orders directly to the seller dashboard.",
+      "Yefhamak (يفهمك) solves missed late-night WhatsApp messages and lost chat orders for Egyptian e-commerce merchants. A bilingual Next.js storefront and workspace pairs with a FastAPI + PostgreSQL backend where the LLM interprets Egyptian Arabic and Franco-Arabic requests via tool calls while deterministic Python services enforce stock reservations, store-document RAG, and transactional orders.",
+    challenge: {
+      problem:
+        "Free-form LLM chatbots risk inventing prices, double-booking low inventory, or confirming orders without enforcing stock rules.",
+      decision:
+        "Restricted the OpenRouter model to validated tool calls while Python/SQLAlchemy services enforce short-lived concurrent reservations, idempotent order creation, and seller-scoped lexical RAG with source citations and human-handoff fallbacks.",
+      result:
+        "Verified across 45 unit tests, 29 isolated PostgreSQL integration tests (covering concurrent reservations, expiry, and seller isolation), and 36 evaluation scenarios.",
+    },
     features: [
       {
         title: "Egyptian Dialect & Franco-Arabic",
         detail:
-          "Handles authentic Egyptian shopper phrasing naturally so conversations feel human rather than scripted.",
+          "Normalizes Arabic, English, and Franco-Arabic catalog queries so conversations match natural Egyptian shopper phrasing.",
       },
       {
-        title: "Live Catalog & RAG Knowledge",
+        title: "Concurrent Stock Reservations",
         detail:
-          "Checks real-time prices, variants, sizes, and inventory availability while answering store policy questions from merchant documents.",
+          "FastAPI + PostgreSQL services enforce short-lived inventory reservations, expiry/release, and transactional order stock updates.",
       },
       {
-        title: "Tool-Powered Order Capture",
+        title: "Store-Document RAG & Citations",
         detail:
-          "Guides shoppers step by step through variant selection, name, Egyptian phone number, street address, and city, then logs structured orders.",
+          "Seller-scoped lexical retrieval selects up to three 1,000-character passages with Arabic/English synonyms and appends document references.",
       },
       {
-        title: "Smart Human Handoff",
+        title: "Mock & Live Dual Workspace",
         detail:
-          "Refuses to guess on out-of-scope or low-confidence questions and immediately escalates the thread to the store owner.",
+          "Try the scripted browser-only demo at /demo instantly or connect to the local Docker FastAPI backend and review orders in /seller/orders.",
       },
     ],
     architecture: [
-      "Bilingual Next.js storefront and interactive workspace supporting Arabic (RTL) and English (LTR).",
-      "Dual-mode /demo workspace: instant browser-only Mock mode plus Live Backend mode connected to a real agent server and database.",
-      "Tool-calling assistant pipeline for catalog search, stock verification, order reservation, and merchant escalation.",
-      "Merchant Seller Orders console tracking order IDs, customer details, EGP totals, shipping breakdown, and review state.",
+      "Frontend (yefhamak): Next.js bilingual Arabic/English landing page (/), interactive chat simulator (/demo), seller orders console (/seller/orders), and /contact.",
+      "Backend (yefhamak-backend): Python 3.12, FastAPI, SQLAlchemy 2.x, Alembic migrations, PostgreSQL, Pydantic, and OpenRouter tool-calling loop.",
+      "Docker Compose + GitHub Actions CI running 45 unit tests and 29 PostgreSQL integration tests without calling external models.",
+      "Evaluation harness with 36 conversation scenarios covering catalog disambiguation, checkout, RAG policy lookup, and human handoff.",
     ],
     techStack: [
       "Next.js",
-      "React",
-      "Tailwind CSS",
+      "Python / FastAPI",
+      "PostgreSQL",
+      "SQLAlchemy & Alembic",
+      "Docker",
       "AI Tool Calling",
       "RAG",
-      "WhatsApp Business",
-      "REST API",
-      "Vercel",
+      "GitHub Actions",
     ],
     readmeCommands: [
-      { label: "Step 01 — Connect", code: "Link WhatsApp Business number" },
-      { label: "Step 02 — Upload", code: "Import product & stock sheet" },
-      { label: "Step 03 — Receive", code: "Track orders in Seller Dashboard" },
+      { label: "Start backend DB & API", code: "docker compose up -d --build --wait" },
+      { label: "Seed demo store", code: "docker compose exec api python -m app.demo.seed" },
+      { label: "Run unit tests", code: "python -m unittest discover -s tests/unit -v" },
     ],
   },
   {
@@ -213,7 +236,7 @@ export const projects = [
     title: "Crowd Anomaly Detection",
     subtitle:
       "Multi-stage deep learning pipeline for crowd violence, abnormal behavior & density estimation",
-    year: "2026",
+    year: "Nov 2026",
     role: "Computer Vision & ML Engineer · Remote (Saudi Arabia)",
     description:
       "Built remotely with a team in Saudi Arabia — an end-to-end vision system progressing from Conv3D + LSTM (5-Fold CV) to a Hybrid YOLOv8n + 3D CNN + Motion Channel + Focal Loss architecture (0.948 Val / 0.865 Test F1 Macro).",
@@ -274,6 +297,14 @@ export const projects = [
     ],
     overview:
       "Developed in remote collaboration with a team in Saudi Arabia, this end-to-end Computer Vision pipeline targets real-time abnormal behavior detection and crowd density estimation across two benchmarks: Crowd Violence Detection (binary sequence classification) and HAJJv2 (7-class object detection and 4-class grouped multi-label spatiotemporal behavior recognition).",
+    challenge: {
+      problem:
+        "Standard per-frame YOLOv8n achieved 0.955 mAP@0.5 on validation (train3) yet dropped to 0.417 mAP@0.5 on unseen test video (val4) because motion behaviors like running and opposite-direction movement lack temporal context and suffer severe class imbalance.",
+      decision:
+        "Extracted 10 pretrained YOLOv8n spatial feature layers (256 ch), stacked a cv2.absdiff grayscale motion channel (257 ch) into a Conv3d temporal head with FocalLoss(alpha=0.25, gamma=2.0) and log1p density regression, then consolidated 7 imbalanced labels into 4 macro classes.",
+      result:
+        "Boosted multi-label generalization from 0.725 to 0.865 Test F1 Macro (0.948 Val F1 Macro, 0.956 Val Jaccard, and 0.865 Test Jaccard).",
+    },
     features: [
       {
         title: "Binary Violence (Conv3D + LSTM)",
@@ -330,10 +361,10 @@ export const projects = [
     title: "Egypt bnbn Travel",
     subtitle:
       "Production travel & tour booking platform across Cairo, Giza, Luxor, Aswan & the Red Sea",
-    year: "2026",
+    year: "Aug 2025 – Jun 2026",
     role: "Full-Stack Web Developer · Remote",
     description:
-      "Delivered remotely — a live Next.js 15 tourism platform featuring multi-category Egyptian tour catalogs, dynamic itinerary & Formik booking pages, SEO Schema.org markup, and Google Sheets-backed reviews.",
+      "Delivered remotely — a live Next.js 15 tourism platform featuring 19 tours across 5 categories, dynamic itinerary & Formik booking pages, SEO Schema.org markup, and Google Sheets-backed reviews.",
     tags: ["Next.js 15", "TypeScript", "Tailwind CSS", "Google Sheets API"],
     tone: "lavender",
     coverImage: "/projects/egyptbnbn-travel/01-hero-desktop.png",
@@ -370,12 +401,20 @@ export const projects = [
       },
     ],
     overview:
-      "Built remotely for Egypt bnbn Travel (egyptbnbntravel.com), this production travel and excursion booking website runs on Next.js 15 and TypeScript. Travelers can browse curated Day Tours, Overday Tours, Multi-Day Packages, Nile Cruises, and Activities across Egypt, inspect full day-by-day itineraries, submit booking inquiries, and read verified guest reviews fetched dynamically from Google Sheets.",
+      "Built remotely for Egypt bnbn Travel (egyptbnbntravel.com), this production travel and excursion booking website runs on Next.js 15 and TypeScript. Travelers can browse 19 curated tours across Day Tours, Overday Tours, Multi-Day Packages, Nile Cruises, and Activities, inspect full day-by-day itineraries, submit booking inquiries, and read verified guest reviews fetched dynamically from Google Sheets.",
+    challenge: {
+      problem:
+        "The travel agency needed a fast SEO-ready catalog with non-technical team updates for traveler reviews without maintaining an admin dashboard or heavy CMS database.",
+      decision:
+        "Built a typed TypeScript tour catalog across 5 Next.js category routes with Formik + Radix UI booking inquiries, Organization/WebSite JSON-LD structured data, and a serverless /api/reviews endpoint authenticating to Google Sheets.",
+      result:
+        "Live production platform serving 19 excursions across Egypt with instant spreadsheet-managed testimonials, WhatsApp conversion links, and Vercel Analytics.",
+    },
     features: [
       {
         title: "Multi-Category Tour Catalog",
         detail:
-          "Dedicated Next.js routes for Day Tours, Overday Tours, Package Tours, Nile Cruise Tours, and Activities, backed by a structured TypeScript catalog.",
+          "Dedicated Next.js routes for Day Tours, Overday Tours, Package Tours, Nile Cruise Tours, and Activities covering 19 excursions across Egypt.",
       },
       {
         title: "Dynamic Booking & Itineraries",

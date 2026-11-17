@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
 export default function ProjectMediaViewer({ title, video, screenshots }) {
   const [mode, setMode] = useState(video ? "video" : "gallery");
   const [activeIndex, setActiveIndex] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
 
   const activeShot = screenshots[activeIndex] ?? screenshots[0];
 
@@ -17,6 +18,21 @@ export default function ProjectMediaViewer({ title, video, screenshots }) {
     setActiveIndex((i) => (i + 1) % screenshots.length);
   }
 
+  useEffect(() => {
+    if (!lightboxOpen) return;
+    function onKeyDown(e) {
+      if (e.key === "Escape") setLightboxOpen(false);
+      if (e.key === "ArrowLeft") {
+        setActiveIndex((i) => (i - 1 + screenshots.length) % screenshots.length);
+      }
+      if (e.key === "ArrowRight") {
+        setActiveIndex((i) => (i + 1) % screenshots.length);
+      }
+    }
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [lightboxOpen, screenshots.length]);
+
   return (
     <div className="space-y-5">
       {/* Mode Switcher Bar */}
@@ -26,7 +42,7 @@ export default function ProjectMediaViewer({ title, video, screenshots }) {
             <button
               type="button"
               onClick={() => setMode("video")}
-              className={`rounded-full px-4 py-1.5 font-mono text-xs uppercase tracking-[0.08em] transition-colors ${
+              className={`cursor-pointer rounded-full px-4 py-1.5 font-mono text-xs uppercase tracking-[0.08em] transition-colors ${
                 mode === "video"
                   ? "bg-accent text-accent-ink"
                   : "text-ink-muted hover:text-ink"
@@ -38,7 +54,7 @@ export default function ProjectMediaViewer({ title, video, screenshots }) {
           <button
             type="button"
             onClick={() => setMode("gallery")}
-            className={`rounded-full px-4 py-1.5 font-mono text-xs uppercase tracking-[0.08em] transition-colors ${
+            className={`cursor-pointer rounded-full px-4 py-1.5 font-mono text-xs uppercase tracking-[0.08em] transition-colors ${
               mode === "gallery"
                 ? "bg-accent text-accent-ink"
                 : "text-ink-muted hover:text-ink"
@@ -48,28 +64,39 @@ export default function ProjectMediaViewer({ title, video, screenshots }) {
           </button>
         </div>
 
-        {mode === "gallery" && screenshots.length > 1 && (
+        {mode === "gallery" && (
           <div className="flex items-center gap-2">
-            <span className="font-mono text-xs text-ink-muted">
-              {String(activeIndex + 1).padStart(2, "0")} /{" "}
-              {String(screenshots.length).padStart(2, "0")}
-            </span>
             <button
               type="button"
-              onClick={prevShot}
-              aria-label="Previous screenshot"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-line text-ink transition-colors hover:border-accent hover:text-accent"
+              onClick={() => setLightboxOpen(true)}
+              className="cursor-pointer rounded-full border border-line px-3.5 py-1.5 font-mono text-xs uppercase tracking-[0.08em] text-ink-muted transition-colors hover:border-accent hover:text-ink"
             >
-              ←
+              Zoom ↗
             </button>
-            <button
-              type="button"
-              onClick={nextShot}
-              aria-label="Next screenshot"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-line text-ink transition-colors hover:border-accent hover:text-accent"
-            >
-              →
-            </button>
+            {screenshots.length > 1 && (
+              <>
+                <span className="font-mono text-xs text-ink-muted">
+                  {String(activeIndex + 1).padStart(2, "0")} /{" "}
+                  {String(screenshots.length).padStart(2, "0")}
+                </span>
+                <button
+                  type="button"
+                  onClick={prevShot}
+                  aria-label="Previous screenshot"
+                  className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-line text-ink transition-colors hover:border-accent hover:text-accent"
+                >
+                  ←
+                </button>
+                <button
+                  type="button"
+                  onClick={nextShot}
+                  aria-label="Next screenshot"
+                  className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-line text-ink transition-colors hover:border-accent hover:text-accent"
+                >
+                  →
+                </button>
+              </>
+            )}
           </div>
         )}
       </div>
@@ -102,15 +129,20 @@ export default function ProjectMediaViewer({ title, video, screenshots }) {
       ) : (
         <div className="space-y-4">
           <div className="overflow-hidden rounded-[24px] border border-line bg-surface">
-            <div className="relative flex h-[380px] w-full items-center justify-center bg-[#0f1013] p-4 sm:h-[520px] sm:p-6">
+            <button
+              type="button"
+              onClick={() => setLightboxOpen(true)}
+              aria-label={`Zoom screenshot: ${activeShot.title}`}
+              className="group relative flex h-[380px] w-full cursor-zoom-in items-center justify-center bg-[#0f1013] p-4 sm:h-[520px] sm:p-6"
+            >
               <Image
                 src={activeShot.src}
                 alt={`${title} — ${activeShot.title}`}
                 fill
                 sizes="(max-width: 768px) 95vw, 1200px"
-                className="object-contain p-2 sm:p-5"
+                className="object-contain p-2 transition-transform duration-300 group-hover:scale-[1.01] sm:p-5"
               />
-            </div>
+            </button>
             <div className="flex flex-wrap items-baseline justify-between gap-3 border-t border-line px-6 py-4">
               <div>
                 <h3 className="font-display text-lg font-semibold text-ink">
@@ -137,7 +169,7 @@ export default function ProjectMediaViewer({ title, video, screenshots }) {
                     key={shot.src}
                     type="button"
                     onClick={() => setActiveIndex(idx)}
-                    className={`group relative overflow-hidden rounded-xl border text-left transition-all ${
+                    className={`group relative cursor-pointer overflow-hidden rounded-xl border text-left transition-all ${
                       isActive
                         ? "border-accent ring-2 ring-accent/40"
                         : "border-line opacity-75 hover:border-ink/40 hover:opacity-100"
@@ -160,6 +192,70 @@ export default function ProjectMediaViewer({ title, video, screenshots }) {
               })}
             </div>
           )}
+        </div>
+      )}
+
+      {/* Full-Screen Lightbox Modal */}
+      {lightboxOpen && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${title} screenshot lightbox`}
+          className="fixed inset-0 z-50 flex flex-col justify-between bg-[#0a0a0c]/95 p-4 backdrop-blur-md sm:p-8"
+          onClick={() => setLightboxOpen(false)}
+        >
+          <div
+            className="flex items-center justify-between gap-4 text-[#f6f2e7]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div>
+              <p className="font-display text-lg font-semibold">{activeShot.title}</p>
+              <p className="font-sans text-xs text-[#969696] sm:text-sm">{activeShot.caption}</p>
+            </div>
+            <div className="flex items-center gap-2">
+              {screenshots.length > 1 && (
+                <>
+                  <button
+                    type="button"
+                    onClick={prevShot}
+                    aria-label="Previous screenshot"
+                    className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:border-accent hover:text-accent"
+                  >
+                    ←
+                  </button>
+                  <button
+                    type="button"
+                    onClick={nextShot}
+                    aria-label="Next screenshot"
+                    className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:border-accent hover:text-accent"
+                  >
+                    →
+                  </button>
+                </>
+              )}
+              <button
+                type="button"
+                onClick={() => setLightboxOpen(false)}
+                aria-label="Close lightbox"
+                className="flex h-10 cursor-pointer items-center justify-center rounded-full border border-white/20 px-4 font-mono text-xs uppercase tracking-[0.08em] text-white transition-colors hover:border-accent hover:text-accent"
+              >
+                Close (Esc)
+              </button>
+            </div>
+          </div>
+
+          <div
+            className="relative my-4 flex-1"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              src={activeShot.src}
+              alt={`${title} — ${activeShot.title}`}
+              fill
+              sizes="100vw"
+              className="object-contain"
+            />
+          </div>
         </div>
       )}
     </div>

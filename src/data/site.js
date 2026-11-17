@@ -15,16 +15,21 @@ export const site = {
     suffix: "who makes complex systems feel simple.",
   },
   description:
-    "Developer based in Cairo, Egypt crafting clean interfaces, resilient full-stack products, and tactile digital experiences.",
-  location: "Cairo, Egypt",
+    "Computer Science graduate based in Cairo, Egypt crafting clean interfaces, resilient full-stack products, and applied AI systems.",
+  location: "Cairo / Giza, Egypt",
   locationBadge: "CAIRO BASED — WORLDWIDE DELIVERY",
+  availability: "Open to full-time & remote freelance roles",
+  education: {
+    degree: "B.Sc. in Computer Science",
+    school: "Faculty of Computer & Information Sciences (FCIS), Ain Shams University",
+  },
   email: "kziad834@gmail.com",
-  cvUrl: "#",
   portraitUrl: "/images/portrait.jpg",
   year: 2026,
   socials: [
     { label: "GitHub", href: "https://github.com/zeyadkhaled2" },
-    { label: "LinkedIn", href: "#" },
+    // Uncomment once you add your LinkedIn URL:
+    // { label: "LinkedIn", href: "https://www.linkedin.com/in/your-handle" },
     { label: "Email", href: "mailto:kziad834@gmail.com" },
   ],
 };

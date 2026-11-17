@@ -17,14 +17,18 @@ function assertPublicAssetExists(assetPath, context) {
   assert.ok(fs.existsSync(fullPath), `${context}: missing public file ${assetPath}`);
 }
 
-test("site identity and navigation are valid", () => {
+test("site identity, navigation, and social links have no dead placeholders", () => {
   assert.equal(site.name, "Ziad Khaled");
   assert.match(site.email, /^[^\s@]+@[^\s@]+\.[^\s@]+$/);
   assert.doesNotThrow(() => new URL(site.url));
+  assert.ok(site.education?.degree && site.education?.school);
   assert.ok(navLinks.length >= 4);
   for (const link of navLinks) {
     assert.ok(link.label.trim().length > 0);
     assert.ok(link.href.startsWith("/#"));
+  }
+  for (const social of site.socials) {
+    assert.notEqual(social.href, "#", `Dead social link for ${social.label}`);
   }
   if (site.portraitUrl) {
     assertPublicAssetExists(site.portraitUrl, "site.portraitUrl");
@@ -42,6 +46,10 @@ test("all projects have unique slugs, complete case-study fields, and existing m
 
     assert.ok(allowedTones.has(project.tone), `Invalid tone on ${project.slug}: ${project.tone}`);
     assert.ok(project.overview.length > 40, `Overview too short on ${project.slug}`);
+    assert.ok(
+      project.challenge?.problem && project.challenge?.decision && project.challenge?.result,
+      `Missing challenge story on ${project.slug}`
+    );
     assert.ok(project.features.length >= 3, `Features missing on ${project.slug}`);
     assert.ok(project.architecture.length >= 2, `Architecture notes missing on ${project.slug}`);
     assert.ok(project.techStack.length >= 3, `Tech stack missing on ${project.slug}`);
@@ -61,9 +69,16 @@ test("all projects have unique slugs, complete case-study fields, and existing m
   }
 });
 
-test("experience, skills, and copy contain no placeholder or forbidden regressions", () => {
+test("experience caseStudy links, skills, and copy are valid", () => {
   assert.ok(experience.length >= 2);
   assert.ok(skills.length >= 4);
+
+  const validPaths = new Set(projects.map((p) => `/work/${p.slug}`));
+  for (const job of experience) {
+    for (const cs of job.caseStudies || []) {
+      assert.ok(validPaths.has(cs.href), `Invalid caseStudy href: ${cs.href}`);
+    }
+  }
 
   const aboutSource = fs.readFileSync(
     path.join(rootDir, "src/components/sections/About.js"),

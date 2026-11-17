@@ -157,6 +157,48 @@ async function ProjectDetailContent({ params }) {
 
         <div className="my-16 h-px w-full bg-line sm:my-20" aria-hidden="true" />
 
+        {/* Engineering Challenge -> Decision -> Result */}
+        {project.challenge && (
+          <>
+            <section aria-label="Engineering challenge and decisions">
+              <span className="font-mono text-xs uppercase tracking-[0.18em] text-accent">
+                Engineering Story
+              </span>
+              <h2 className="mt-2 font-display text-3xl font-bold uppercase tracking-[0.02em] text-ink sm:text-4xl">
+                Challenge &amp; Trade-Offs
+              </h2>
+              <div className="mt-8 grid gap-5 md:grid-cols-3">
+                <div className="rounded-[20px] border border-line bg-surface p-6">
+                  <p className="font-mono text-xs uppercase tracking-[0.14em] text-pink">
+                    01 · Problem
+                  </p>
+                  <p className="mt-3 font-sans text-sm leading-relaxed text-ink-muted">
+                    {project.challenge.problem}
+                  </p>
+                </div>
+                <div className="rounded-[20px] border border-line bg-surface p-6">
+                  <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent">
+                    02 · Decision
+                  </p>
+                  <p className="mt-3 font-sans text-sm leading-relaxed text-ink-muted">
+                    {project.challenge.decision}
+                  </p>
+                </div>
+                <div className="rounded-[20px] border border-line bg-surface p-6">
+                  <p className="font-mono text-xs uppercase tracking-[0.14em] text-mint">
+                    03 · Result
+                  </p>
+                  <p className="mt-3 font-sans text-sm leading-relaxed text-ink-muted">
+                    {project.challenge.result}
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <div className="my-16 h-px w-full bg-line sm:my-20" aria-hidden="true" />
+          </>
+        )}
+
         {/* Architecture & Technical Notes */}
         <section className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-6">
