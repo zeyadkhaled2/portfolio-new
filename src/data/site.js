@@ -12,13 +12,13 @@ export const site = {
   heroHeadline: {
     prefix: "I'm a",
     highlight: "Software Developer",
-    suffix: "who makes complex systems feel simple.",
+    suffix: "turning hard problems into simple software.",
   },
   description:
-    "Computer Science graduate based in Cairo, Egypt crafting clean interfaces, resilient full-stack products, and applied AI systems.",
+    "Computer Science grad from Ain Shams University, based in Cairo. I build full-stack web apps, React Native mobile tools, and practical AI systems.",
   location: "Cairo / Giza, Egypt",
-  locationBadge: "CAIRO BASED — WORLDWIDE DELIVERY",
-  availability: "Open to full-time & remote freelance roles",
+  locationBadge: "BASED IN CAIRO · WORKING REMOTELY",
+  availability: "Open to full-time roles and freelance work",
   education: {
     degree: "B.Sc. in Computer Science",
     school: "Faculty of Computer & Information Sciences (FCIS), Ain Shams University",

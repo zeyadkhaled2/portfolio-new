@@ -11,8 +11,8 @@ export default function NotFound() {
           This page doesn&apos;t exist.
         </h1>
         <p className="mt-4 max-w-lg font-sans text-lg text-ink-muted">
-          The route or project you requested isn&apos;t here. Head back to the portfolio to explore
-          selected work.
+          Couldn&apos;t find that page or project. Head back home or browse the work on the main
+          page.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           <Button href="/">Back home</Button>

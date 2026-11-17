@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ProjectMediaViewer from "./_components/ProjectMediaViewer";
 import Button from "@/components/ui/Button";
-import { projects } from "@/data";
+import { projects, site } from "@/data";
 
 const featureDotColors = ["bg-accent", "bg-pink", "bg-mint", "bg-yellow"];
 
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }) {
   const project = projects.find((p) => p.slug === slug);
   if (!project) return { title: "Project Not Found" };
   return {
-    title: `${project.title} — Case Study`,
+    title: project.title,
     description: project.description,
     alternates: {
       canonical: `/work/${project.slug}`,
@@ -24,13 +24,13 @@ export async function generateMetadata({ params }) {
     openGraph: {
       type: "article",
       url: `/work/${project.slug}`,
-      title: `${project.title} — Case Study`,
+      title: `${project.title} | ${site.name}`,
       description: project.description,
       images: [{ url: project.coverImage, alt: project.title }],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${project.title} — Case Study`,
+      title: `${project.title} | ${site.name}`,
       description: project.description,
       images: [project.coverImage],
     },
@@ -162,10 +162,10 @@ async function ProjectDetailContent({ params }) {
           <>
             <section aria-label="Engineering challenge and decisions">
               <span className="font-mono text-xs uppercase tracking-[0.18em] text-accent">
-                Engineering Story
+                Behind the Build
               </span>
               <h2 className="mt-2 font-display text-3xl font-bold uppercase tracking-[0.02em] text-ink sm:text-4xl">
-                Challenge &amp; Trade-Offs
+                Trade-Offs &amp; Decisions
               </h2>
               <div className="mt-8 grid gap-5 md:grid-cols-3">
                 <div className="rounded-[20px] border border-line bg-surface p-6">
@@ -178,7 +178,7 @@ async function ProjectDetailContent({ params }) {
                 </div>
                 <div className="rounded-[20px] border border-line bg-surface p-6">
                   <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent">
-                    02 · Decision
+                    02 · Approach
                   </p>
                   <p className="mt-3 font-sans text-sm leading-relaxed text-ink-muted">
                     {project.challenge.decision}
@@ -186,7 +186,7 @@ async function ProjectDetailContent({ params }) {
                 </div>
                 <div className="rounded-[20px] border border-line bg-surface p-6">
                   <p className="font-mono text-xs uppercase tracking-[0.14em] text-mint">
-                    03 · Result
+                    03 · Outcome
                   </p>
                   <p className="mt-3 font-sans text-sm leading-relaxed text-ink-muted">
                     {project.challenge.result}

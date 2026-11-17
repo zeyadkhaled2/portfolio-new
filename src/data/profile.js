@@ -4,41 +4,41 @@
 
 export const experience = [
   {
-    period: "JUL — NOV 2026",
-    role: "Full-Stack & AI Product Developer",
-    company: "Independent Builds",
+    period: "JUL – NOV 2026",
+    role: "Full-Stack & AI Developer",
+    company: "Independent Projects",
     caseStudies: [
       { label: "DevReps", href: "/work/devreps" },
       { label: "Yefhamak", href: "/work/yefhamak" },
     ],
     summary:
-      "Built and shipped DevReps (Expo SDK 58 / React Native + Express/Prisma API) and Yefhamak (bilingual Next.js frontend + FastAPI/PostgreSQL/Docker AI sales agent with RAG & 74 automated tests).",
+      "Built two full products end to end: DevReps, a React Native interview prep app backed by an Express and Prisma API, and Yefhamak, a bilingual Egyptian Arabic WhatsApp sales bot running on Next.js, FastAPI, PostgreSQL, and RAG.",
   },
   {
-    period: "AUG 2025 — JUN 2026 · REMOTE",
+    period: "AUG 2025 – JUN 2026 · REMOTE",
     role: "Full-Stack Web Developer",
-    company: "Egypt bnbn Travel (Remote)",
+    company: "Egypt bnbn Travel",
     caseStudies: [{ label: "Egypt bnbn Travel", href: "/work/egyptbnbn-travel" }],
     summary:
-      "Built and shipped the production Next.js 15 & TypeScript travel booking platform (egyptbnbntravel.com) covering 19 tours across 5 categories, dynamic itineraries, Formik booking flows, Schema.org SEO, and a Google Sheets reviews API.",
+      "Built the live booking site at egyptbnbntravel.com with Next.js 15 and TypeScript. It covers 19 tours across 5 categories, day-by-day itineraries, booking forms, SEO structured data, and guest reviews pulled straight from Google Sheets.",
   },
   {
-    period: "JUL 2024 — NOV 2025 · REMOTE",
+    period: "JUL 2024 – NOV 2025 · REMOTE",
     role: "Computer Vision & ML Engineer",
-    company: "Remote Team (Saudi Arabia)",
+    company: "Remote Team, Saudi Arabia",
     caseStudies: [
       { label: "Crowd Anomaly Detection", href: "/work/crowd-anomaly-detection" },
     ],
     summary:
-      "Worked remotely with a team in Saudi Arabia on Crowd Anomaly Detection — progressing from Conv3D + LSTM (5-Fold CV) to a Hybrid YOLOv8n + 3D CNN + Motion Channel + Focal Loss pipeline (0.948 Val / 0.865 Test F1 Macro).",
+      "Collaborated remotely with a team in Saudi Arabia on crowd anomaly detection. Moved the pipeline from a Conv3D + LSTM baseline to a hybrid YOLOv8n + 3D CNN model with motion differencing and Focal Loss, hitting 0.865 test F1 macro.",
   },
   {
-    period: "2023 — 2025",
+    period: "2023 – 2025",
     role: "Frontend & Full-Stack Developer",
-    company: "Projects & Freelance",
+    company: "Freelance & Client Work",
     caseStudies: [],
     summary:
-      "Built responsive React and Next.js interfaces, REST APIs, and PostgreSQL-backed workflows focused on clarity, performance, and reliability.",
+      "Built responsive React and Next.js frontends, REST APIs, and PostgreSQL workflows for client sites and early product prototypes.",
   },
 ];
 

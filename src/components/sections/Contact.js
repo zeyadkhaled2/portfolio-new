@@ -89,10 +89,10 @@ export default function Contact() {
                   {/* Bottom Broadcast Strip */}
                   <div className="space-y-2">
                     <p className="font-display text-xs font-semibold uppercase tracking-[0.06em] text-[#f6f2e7]/90 sm:text-sm">
-                      Available for freelance &amp; full-time roles · Fast response guaranteed
+                      Available for full-time roles and freelance work
                     </p>
                     <p className="font-display text-xs font-semibold uppercase tracking-[0.06em] text-[#f6f2e7]/75">
-                      Or email direct
+                      Or email me directly
                     </p>
                     <div className="flex flex-wrap items-center justify-center gap-3 pt-0.5">
                       <a

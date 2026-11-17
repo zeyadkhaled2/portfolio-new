@@ -21,7 +21,7 @@ function ProjectCard({
   secondaryImage,
   coverFit,
 }) {
-  const metaLine = [year, ...tags].filter(Boolean).join(" · ");
+  const cardTags = [year, ...tags].filter(Boolean);
 
   return (
     <Link
@@ -79,7 +79,7 @@ function ProjectCard({
             {title}
           </h3>
           <span className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.08em] text-ink-muted transition-colors duration-200 group-hover:text-accent">
-            <span>View case</span>
+            <span>View project</span>
             <span
               aria-hidden="true"
               className="inline-block transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
@@ -89,7 +89,21 @@ function ProjectCard({
           </span>
         </div>
         <p className="font-sans text-base leading-relaxed text-ink-muted">{description}</p>
-        <p className="pt-1 font-sans text-sm text-ink-muted">· {metaLine}</p>
+        {cardTags.length > 0 && (
+          <ul
+            aria-label={`${title} tags`}
+            className="mt-1.5 flex flex-wrap items-center gap-2.5"
+          >
+            {cardTags.map((tag) => (
+              <li
+                key={tag}
+                className="rounded-[8px] border border-accent px-4 py-2 font-mono text-sm leading-none text-ink whitespace-nowrap"
+              >
+                {tag}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </Link>
   );
@@ -113,7 +127,7 @@ export default function Projects() {
               </h2>
             </div>
             <p className="font-mono text-xs uppercase tracking-[0.14em] text-ink-muted">
-              Click any project for demo &amp; README
+              Open any project for the demo &amp; breakdown
             </p>
           </header>
         </Reveal>

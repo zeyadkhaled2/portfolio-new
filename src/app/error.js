@@ -18,7 +18,7 @@ export default function ErrorPage({ error, retry }) {
           Something went wrong.
         </h1>
         <p className="mt-4 max-w-lg font-sans text-lg text-ink-muted">
-          An unexpected error occurred while rendering this section. You can retry or return home.
+          Something broke while loading this page. Try again or head back home.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           <button

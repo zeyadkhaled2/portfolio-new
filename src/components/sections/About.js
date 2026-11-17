@@ -19,15 +19,15 @@ export default function About() {
 
           <Reveal delay={0.08} className="space-y-6 font-sans text-lg leading-relaxed text-ink-muted lg:col-span-7">
             <p className="text-xl leading-relaxed text-ink">
-              I&apos;m a Computer Science graduate from Ain Shams University based in Cairo,
-              building web platforms, mobile apps, and applied AI systems that turn complex
-              workflows into calm, reliable products.
+              I studied Computer Science at Ain Shams University in Cairo and spend most of my time
+              building full-stack web apps, mobile apps with React Native, and backend services
+              powered by AI.
             </p>
             <p>
-              From shipping production Next.js booking sites and bilingual FastAPI/WhatsApp sales
-              agents to training multi-stage PyTorch computer-vision pipelines remotely with teams
-              across Egypt and Saudi Arabia, I care about clear architecture, automated testing, and
-              code that holds up in production.
+              Lately that has meant everything from shipping a Next.js tour booking site for a
+              travel agency and building an Egyptian Arabic WhatsApp sales bot, to working remotely
+              with a team in Saudi Arabia on real-time crowd vision models. I care about clean
+              architecture, solid tests, and shipping software people can rely on.
             </p>
 
             {/* Education card */}

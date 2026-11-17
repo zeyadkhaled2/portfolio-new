@@ -6,11 +6,11 @@ export const projects = [
   {
     slug: "devreps",
     title: "DevReps",
-    subtitle: "Technical interview practice, live JS execution tracing & interactive CS labs",
+    subtitle: "Interview practice, live JavaScript tracing, and interactive CS labs on mobile",
     year: "Jul – Nov 2026",
     role: "Mobile & Full-Stack Developer",
     description:
-      "React Native mobile app for practicing scored technical interviews, tracing JavaScript execution line by line, and exploring interactive data-structure labs.",
+      "A React Native app for practicing technical interviews with scored feedback, stepping through JavaScript line by line, and playing with data structures.",
     tags: ["React Native", "Expo SDK 58", "TypeScript", "AI Mentor"],
     tone: "mint",
     coverImage: "/projects/devreps/cover-phone-home.png",
@@ -25,69 +25,69 @@ export const projects = [
       poster: "/projects/devreps/03-meet-devreps-home.png",
       portrait: true,
       caption:
-        "DevReps showcase reel — JS puzzles, live execution tracing, CS labs, and interview practice.",
+        "Quick walkthrough of DevReps: JS output puzzles, live tracing, CS labs, and interview practice.",
     },
     screenshots: [
       {
         src: "/projects/devreps/03-meet-devreps-home.png",
         title: "Home Hub",
         caption:
-          "Main navigation across JS challenges, interview practice, CS labs, AI Mentor, and progress.",
+          "Main home screen linking to JS puzzles, interview practice, CS labs, and the AI Mentor.",
       },
       {
         src: "/projects/devreps/01-js-challenge-puzzle.png",
         title: "JS Output Puzzle",
         caption:
-          "Nine curated JavaScript puzzles across three difficulty levels running 100% locally.",
+          "Nine JavaScript puzzles across three difficulty levels, all running locally on your phone.",
       },
       {
         src: "/projects/devreps/02-js-trace-live.png",
         title: "Live Execution Trace",
         caption:
-          "Step-by-step code execution inspector showing console output and variable state.",
+          "Step through code line by line and watch console output and variable values update.",
       },
       {
         src: "/projects/devreps/04-stacks-lifo-lab.png",
         title: "Stacks (LIFO) Lab",
-        caption: "Interactive stack operations lab — push, pop, and peek with live visual feedback.",
+        caption: "Push, pop, and peek items in an interactive stack with visual state updates.",
       },
       {
         src: "/projects/devreps/05-linked-lists-lab.png",
         title: "Linked Lists Lab",
-        caption: "Insert and traverse pointer nodes step by step inside a visual linked list.",
+        caption: "Insert nodes and walk through pointers step by step inside a visual linked list.",
       },
       {
         src: "/projects/devreps/06-recursion-unwind-lab.png",
         title: "Recursion Unwind Lab",
-        caption: "Watch recursive frames push onto the call stack and unwind back to the caller.",
+        caption: "See recursive calls pile onto the stack and unwind back to the base case.",
       },
       {
         src: "/projects/devreps/07-six-labs-overview.png",
         title: "Dynamic Programming & Labs",
         caption:
-          "Solve DP problems like climbing stairs and exact change by filling the table step by step.",
+          "Fill DP tables cell by cell for problems like climbing stairs and exact change.",
       },
     ],
     overview:
-      "DevReps is a React Native mobile application and Express/PostgreSQL API built for daily technical interview reps and hands-on computer science intuition. Instead of passive flashcards, learners predict JavaScript output and step through execution line by line, manipulate data structures directly across interactive labs, and submit interview answers for scored Gemini-powered feedback.",
+      "DevReps is a React Native app paired with an Express and PostgreSQL API, built to make daily technical interview prep feel active instead of passive. You can predict what tricky JavaScript snippets output, step through execution line by line, test how data structures behave in interactive labs, and get scored Gemini feedback on practice interview answers.",
     challenge: {
       problem:
-        "Running every coding drill through a remote LLM adds latency, exhausts API quota, and breaks offline practice on mobile.",
+        "Sending every small coding drill to an external LLM slows things down, burns through API quota, and stops working the moment you go offline.",
       decision:
-        "Embedded all 9 curated JavaScript trace puzzles and interactive CS labs on-device with Expo SecureStore, while isolating Gemini interview scoring and Mentor chat in a separate Express + Prisma API with draft recovery on HTTP 429 or network failure.",
+        "I kept all 9 JavaScript puzzles and the interactive CS labs offline inside the mobile app with Expo SecureStore, and put Gemini interview scoring and Mentor chat behind a separate Express + Prisma API that saves drafts if a request fails or hits a 429 rate limit.",
       result:
-        "Instant offline tracing and lab feedback paired with persistent account history, streaks, and CI-verified test suites across both mobile and backend repositories.",
+        "Tracing and CS labs respond instantly with zero network calls, while interview attempts, streaks, and chat history stay synced in Postgres and covered by automated tests on both repos.",
     },
     features: [
       {
         title: "Scored Interview Practice",
         detail:
-          "Pick React, Node, JavaScript, SQL, or HR at your chosen difficulty, submit an answer, and review your score, rubric feedback, and attempt history.",
+          "Choose React, Node, JavaScript, SQL, or HR at your target difficulty, type an answer, and get a score with rubric notes and past attempt history.",
       },
       {
         title: "JavaScript Output & Live Trace",
         detail:
-          "Work through nine curated JavaScript puzzles across three difficulty tiers and step line by line through execution without spending AI requests.",
+          "Solve nine JavaScript output puzzles across three difficulty tiers and step through how each line runs without using any AI calls.",
       },
       {
         title: "Interactive CS Labs",
@@ -95,16 +95,16 @@ export const projects = [
           "Lift plates in Stacks (LIFO), run a Printer Queue, insert nodes into Linked Lists, watch Recursion frames unwind, traverse Trees, and fill Dynamic Programming tables.",
       },
       {
-        title: "AI Mentor & Draft Safety",
+        title: "AI Mentor & Saved Drafts",
         detail:
-          "Ask coding questions, resume saved conversations, track streaks and personal bests, and retain drafts automatically if a network call fails.",
+          "Ask follow-up coding questions, pick up old Mentor threads, track streaks, and keep your typed answers safe if your connection drops.",
       },
     ],
     architecture: [
-      "Mobile App (devreps-mobile): Expo SDK 58, React Native 0.88.1, React 19.3, TypeScript, TanStack Query, Zustand, and React Hook Form + Zod.",
-      "Feature-sliced layout under src/features/, React Navigation stack/tab flows under src/app/navigation/, and Expo SecureStore token persistence.",
-      "Backend API (devreps-api): Express + TypeScript with PostgreSQL, Prisma ORM, JWT auth, and modular routes under src/modules/ (auth, practice, attempts, streak, chat).",
-      "Gemini integration with HTTP 429 rate-limit handling plus mocked Prisma/Gemini tests and GitHub Actions CI on both repos.",
+      "Mobile app (devreps-mobile): Expo SDK 58, React Native 0.88.1, React 19.3, TypeScript, TanStack Query, Zustand, and React Hook Form + Zod.",
+      "Code organized by feature under src/features/, navigation stacks and tabs in src/app/navigation/, and auth tokens stored in Expo SecureStore.",
+      "Backend API (devreps-api): Express + TypeScript with PostgreSQL, Prisma, JWT auth, and route modules under src/modules/ (auth, practice, attempts, streak, chat).",
+      "Gemini handles answer grading and chat with HTTP 429 rate-limit handling, backed by mocked Prisma/Gemini tests and GitHub Actions CI.",
     ],
     techStack: [
       "React Native",
@@ -119,19 +119,19 @@ export const projects = [
       "Gemini API",
     ],
     readmeCommands: [
-      { label: "Mobile — Install & start", code: "npm ci && npm start" },
-      { label: "Mobile — Checks & tests", code: "npm run check" },
-      { label: "API — Migrate & run", code: "npm run db:migrate && npm run dev" },
+      { label: "Install & start mobile", code: "npm ci && npm start" },
+      { label: "Run mobile checks", code: "npm run check" },
+      { label: "Migrate & start API", code: "npm run db:migrate && npm run dev" },
     ],
   },
   {
     slug: "yefhamak",
     title: "Yefhamak (يفهمك)",
-    subtitle: "24/7 Egyptian Arabic WhatsApp AI sales assistant & merchant order workspace",
+    subtitle: "24/7 Egyptian Arabic WhatsApp sales bot and order dashboard for online stores",
     year: "Oct – Nov 2026",
     role: "Product & Full-Stack Developer",
     description:
-      "Bilingual AI sales assistant that chats with shoppers in Egyptian Arabic and Franco-Arabic, reserves live inventory in PostgreSQL, and creates structured merchant orders.",
+      "Bilingual AI shopping assistant that replies in Egyptian Arabic and Franco-Arabic, reserves live stock in PostgreSQL, and logs clean orders for merchants.",
     tags: ["Next.js", "FastAPI", "PostgreSQL", "AI Agents"],
     tone: "peach",
     coverImage: "/projects/yefhamak/01-hero-desktop.png",
@@ -148,72 +148,72 @@ export const projects = [
       src: "/projects/yefhamak/demo.mp4",
       poster: "/projects/yefhamak/01-hero-desktop.png",
       caption:
-        "Yefhamak v2 full demo — live backend chat in Egyptian Arabic, variant lookup, human escalation, and order creation.",
+        "Yefhamak v2 walkthrough: live Egyptian Arabic chat, variant lookup, human handoff, and order creation.",
     },
     screenshots: [
       {
         src: "/projects/yefhamak/01-hero-desktop.png",
         title: "Landing Hero & WhatsApp Preview",
-        caption: "Bilingual Arabic/English landing page showcasing 24/7 Egyptian Arabic WhatsApp replies.",
+        caption: "Bilingual Arabic and English landing page showing how the WhatsApp bot handles late-night shopper chats.",
       },
       {
         src: "/projects/yefhamak/02-demo-frame-1.png",
         title: "Live Assistant Workspace",
-        caption: "Interactive /demo workspace supporting both browser-only mock mode and live backend mode.",
+        caption: "The /demo workspace lets you test either browser mock mode or a live local backend.",
       },
       {
         src: "/projects/yefhamak/04-demo-frame-3.png",
         title: "Egyptian Arabic Catalog Lookup",
-        caption: "Understands colloquial product queries, checks live variants/stock, and asks clarifying questions.",
+        caption: "Picks up colloquial product questions, checks live variants and stock, and asks before assuming.",
       },
       {
         src: "/projects/yefhamak/05-seller-orders.png",
         title: "Seller Orders Dashboard",
-        caption: "Real-time merchant view displaying structured orders, totals in EGP, and review statuses.",
+        caption: "Merchant view showing confirmed orders, EGP totals, and items flagged for review.",
       },
       {
         src: "/projects/yefhamak/06-order-created.png",
         title: "Core Platform Capabilities",
-        caption: "RAG document answers, tool-powered reservations, live inventory lookup, and human handoff.",
+        caption: "Policy Q&A via RAG, stock reservations, live inventory checks, and escalation to a human.",
       },
     ],
     overview:
-      "Yefhamak (يفهمك) solves missed late-night WhatsApp messages and lost chat orders for Egyptian e-commerce merchants. A bilingual Next.js storefront and workspace pairs with a FastAPI + PostgreSQL backend where the LLM interprets Egyptian Arabic and Franco-Arabic requests via tool calls while deterministic Python services enforce stock reservations, store-document RAG, and transactional orders.",
+      "Online shops in Egypt lose sales every night when WhatsApp messages go unanswered until morning or chat orders get typed wrong. Yefhamak pairs a bilingual Next.js site and seller dashboard with a FastAPI and PostgreSQL backend. The AI reads Egyptian Arabic and Franco-Arabic messages and calls strict backend tools, while deterministic Python services handle stock holds, store policy lookup, and final order creation.",
     challenge: {
       problem:
-        "Free-form LLM chatbots risk inventing prices, double-booking low inventory, or confirming orders without enforcing stock rules.",
+        "Letting an LLM talk freely without guardrails leads to made-up prices, oversold stock when two buyers chat at once, and unverified orders.",
       decision:
-        "Restricted the OpenRouter model to validated tool calls while Python/SQLAlchemy services enforce short-lived concurrent reservations, idempotent order creation, and seller-scoped lexical RAG with source citations and human-handoff fallbacks.",
+        "I locked the OpenRouter model to validated tool calls only. SQLAlchemy services handle short-lived inventory holds, idempotent checkout, per-seller lexical RAG with source links, and handoff to a human when confidence drops.",
       result:
-        "Verified across 45 unit tests, 29 isolated PostgreSQL integration tests (covering concurrent reservations, expiry, and seller isolation), and 36 evaluation scenarios.",
+        "All core flows are verified by 45 unit tests, 29 real PostgreSQL integration tests covering concurrent holds and seller isolation, and 36 conversation eval cases.",
     },
     features: [
       {
         title: "Egyptian Dialect & Franco-Arabic",
         detail:
-          "Normalizes Arabic, English, and Franco-Arabic catalog queries so conversations match natural Egyptian shopper phrasing.",
+          "Normalizes Arabic, English, and Franco-Arabic queries so shoppers can text the way they normally type on WhatsApp.",
       },
       {
-        title: "Concurrent Stock Reservations",
+        title: "Concurrent Stock Holds",
         detail:
-          "FastAPI + PostgreSQL services enforce short-lived inventory reservations, expiry/release, and transactional order stock updates.",
+          "FastAPI and PostgreSQL enforce timed inventory holds, release expired carts, and update stock inside a single transaction.",
       },
       {
-        title: "Store-Document RAG & Citations",
+        title: "Store Policy RAG",
         detail:
-          "Seller-scoped lexical retrieval selects up to three 1,000-character passages with Arabic/English synonyms and appends document references.",
+          "Pulls up to three 1,000-character passages from each seller's own docs using Arabic and English synonyms and cites the source.",
       },
       {
-        title: "Mock & Live Dual Workspace",
+        title: "Mock & Live Demo Modes",
         detail:
-          "Try the scripted browser-only demo at /demo instantly or connect to the local Docker FastAPI backend and review orders in /seller/orders.",
+          "Try the scripted demo right in the browser at /demo, or hook it up to the Docker backend and watch orders land in /seller/orders.",
       },
     ],
     architecture: [
-      "Frontend (yefhamak): Next.js bilingual Arabic/English landing page (/), interactive chat simulator (/demo), seller orders console (/seller/orders), and /contact.",
-      "Backend (yefhamak-backend): Python 3.12, FastAPI, SQLAlchemy 2.x, Alembic migrations, PostgreSQL, Pydantic, and OpenRouter tool-calling loop.",
-      "Docker Compose + GitHub Actions CI running 45 unit tests and 29 PostgreSQL integration tests without calling external models.",
-      "Evaluation harness with 36 conversation scenarios covering catalog disambiguation, checkout, RAG policy lookup, and human handoff.",
+      "Frontend (yefhamak): Bilingual Arabic/English Next.js landing page (/), interactive chat simulator (/demo), seller orders page (/seller/orders), and /contact.",
+      "Backend (yefhamak-backend): Python 3.12, FastAPI, SQLAlchemy 2.x, Alembic migrations, PostgreSQL, Pydantic, and an OpenRouter tool-calling loop.",
+      "Docker Compose setup plus GitHub Actions CI running 45 unit tests and 29 PostgreSQL integration tests offline.",
+      "36-scenario eval suite testing product disambiguation, checkout, RAG answers, and human escalation.",
     ],
     techStack: [
       "Next.js",
@@ -235,11 +235,11 @@ export const projects = [
     slug: "crowd-anomaly-detection",
     title: "Crowd Anomaly Detection",
     subtitle:
-      "Multi-stage deep learning pipeline for crowd violence, abnormal behavior & density estimation",
+      "Deep learning pipeline for detecting crowd violence, unusual behavior, and density in video",
     year: "Jul 2024 – Nov 2025",
-    role: "Computer Vision & ML Engineer · Remote (Saudi Arabia)",
+    role: "Computer Vision & ML Engineer (Remote, Saudi Arabia)",
     description:
-      "Built remotely with a team in Saudi Arabia — an end-to-end vision system progressing from Conv3D + LSTM (5-Fold CV) to a Hybrid YOLOv8n + 3D CNN + Motion Channel + Focal Loss architecture (0.948 Val / 0.865 Test F1 Macro).",
+      "Built with a remote team in Saudi Arabia. Evolved from a Conv3D + LSTM baseline to a hybrid YOLOv8n + 3D CNN + motion channel pipeline hitting 0.865 test F1 macro.",
     tags: ["PyTorch", "YOLOv8n", "3D CNN", "Computer Vision"],
     tone: "mint",
     coverImage: "/projects/crowd-anomaly/yolo_sample_detection.jpg",
@@ -256,82 +256,82 @@ export const projects = [
         src: "/projects/crowd-anomaly/yolo_sample_detection.jpg",
         title: "YOLOv8n Behavior Detection",
         caption:
-          "Crowd behavior localization on HAJJv2 frames (0.955 mAP@0.5 / 0.713 mAP@0.5:0.95 validation).",
+          "Behavior bounding boxes on HAJJv2 validation frames (0.955 mAP@0.5, 0.713 mAP@0.5:0.95).",
       },
       {
         src: "/projects/crowd-anomaly/sample_pred_4c_test.png",
         title: "16-Frame Sequence Prediction",
         caption:
-          "4-class grouped multi-label behavior & crowd density prediction on an unseen 16-frame test clip.",
+          "4-class multi-label behavior and crowd density predictions on an unseen 16-frame test clip.",
       },
       {
         src: "/projects/crowd-anomaly/hybrid_4c_training_curves.png",
         title: "4-Class Hybrid Training Curves",
         caption:
-          "Classification, density, and Hamming loss alongside Jaccard IoU, F1 Macro, and Subset Accuracy over 50 epochs.",
+          "Loss, Jaccard IoU, F1 macro, and subset accuracy tracked across 50 training epochs.",
       },
       {
         src: "/projects/crowd-anomaly/hybrid_4c_val_metrics.png",
         title: "4-Class Validation Metrics",
         caption:
-          "Per-class precision, recall, F1, and accuracy achieving 0.948 Val F1 Macro and 0.956 Jaccard.",
+          "Per-class precision, recall, F1, and accuracy hitting 0.948 Val F1 macro and 0.956 Jaccard.",
       },
       {
         src: "/projects/crowd-anomaly/hybrid_4c_test_metrics.png",
         title: "4-Class Test Metrics",
         caption:
-          "Held-out test generalization reaching 0.865 Test F1 Macro and 0.865 Jaccard across 4 macro behaviors.",
+          "Held-out test results across 4 grouped behaviors reaching 0.865 F1 macro and 0.865 Jaccard.",
       },
       {
         src: "/projects/crowd-anomaly/yolo_train3_confusion_matrix.png",
         title: "7-Class Confusion Matrix",
         caption:
-          "Normalized YOLOv8n confusion matrix across sitting, standing, moving opposite, running, and non-human objects.",
+          "YOLOv8n normalized confusion matrix across sitting, standing, moving opposite, running, and non-human objects.",
       },
       {
         src: "/projects/crowd-anomaly/yolo_train3_results.png",
         title: "YOLOv8n Training Progression",
         caption:
-          "40-epoch box/class/DFL losses, precision, recall, mAP50, and mAP50-95 curves on HAJJv2.",
+          "40 epochs of box, class, and DFL losses alongside precision, recall, mAP50, and mAP50-95 on HAJJv2.",
       },
     ],
     overview:
-      "Developed in remote collaboration with a team in Saudi Arabia, this end-to-end Computer Vision pipeline targets real-time abnormal behavior detection and crowd density estimation across two benchmarks: Crowd Violence Detection (binary sequence classification) and HAJJv2 (7-class object detection and 4-class grouped multi-label spatiotemporal behavior recognition).",
+      "I worked on this remotely with a team in Saudi Arabia to detect abnormal crowd behavior and estimate crowd density from surveillance video. We trained and evaluated across two benchmarks: binary Crowd Violence Detection and HAJJv2 (both 7-class frame detection and 4-class multi-label clip classification).",
     challenge: {
       problem:
-        "Standard per-frame YOLOv8n achieved 0.955 mAP@0.5 on validation (train3) yet dropped to 0.417 mAP@0.5 on unseen test video (val4) because motion behaviors like running and opposite-direction movement lack temporal context and suffer severe class imbalance.",
+        "Frame-by-frame YOLOv8n looked great on validation (0.955 mAP@0.5 on train3) but fell to 0.417 mAP@0.5 on unseen test footage (val4). Still frames miss motion clues like running or walking against the crowd, and rare classes were heavily outnumbered.",
       decision:
-        "Extracted 10 pretrained YOLOv8n spatial feature layers (256 ch), stacked a cv2.absdiff grayscale motion channel (257 ch) into a Conv3d temporal head with FocalLoss(alpha=0.25, gamma=2.0) and log1p density regression, then consolidated 7 imbalanced labels into 4 macro classes.",
+        "We took 10 pretrained YOLOv8n spatial feature layers (256 channels), stacked a cv2.absdiff grayscale motion channel (257 channels total) into a Conv3d temporal head with FocalLoss(alpha=0.25, gamma=2.0) and log1p density prediction, and grouped the 7 uneven labels into 4 macro classes.",
       result:
-        "Boosted multi-label generalization from 0.725 to 0.865 Test F1 Macro (0.948 Val F1 Macro, 0.956 Val Jaccard, and 0.865 Test Jaccard).",
+        "Held-out test generalization jumped from 0.725 to 0.865 F1 macro, with 0.948 F1 macro and 0.956 Jaccard on validation.",
     },
     features: [
       {
         title: "Binary Violence (Conv3D + LSTM)",
         detail:
-          "Progressed from 2D and 3D CNN baselines to Conv3D + LSTM with 5-Fold Stratified CV (sequence=90, Masking, L2), reaching 83.93% ± 6.83% CV accuracy, 82.35% test accuracy, and 0.88 ± 0.08 AUC.",
+          "Moved from 2D and 3D CNN baselines to Conv3D + LSTM with 5-Fold Stratified CV (90-frame sequences, Masking, L2), hitting 83.93% ± 6.83% CV accuracy, 82.35% test accuracy, and 0.88 ± 0.08 AUC.",
       },
       {
-        title: "YOLOv8n Crowd Localization",
+        title: "YOLOv8n Crowd Detection",
         detail:
-          "Trained YOLOv8n (640×640, mosaic augmentation, Soft-NMS) on HAJJv2 frames, achieving 0.955 mAP@0.5 on validation and exposing domain-shift limitations on rare motion classes.",
+          "Trained YOLOv8n (640x640, mosaic augmentation, Soft-NMS) on HAJJv2, getting 0.955 validation mAP@0.5 and showing why single-frame models struggle on motion classes.",
       },
       {
         title: "Hybrid YOLO3DCNN + Motion",
         detail:
-          "Combined 10 pretrained YOLOv8n spatial layers (256 ch) with a grayscale frame-difference motion channel (cv2.absdiff, 257 ch total) and a Conv3d temporal head + log-density regression.",
+          "Fused 10 pretrained YOLOv8n layers (256 ch) with a frame-difference motion channel (cv2.absdiff, 257 ch) into a 3D CNN head plus log-density regression.",
       },
       {
         title: "Focal Loss & 4-Class Grouping",
         detail:
-          "Tackled severe class imbalance with FocalLoss(alpha=0.25, gamma=2.0) and consolidated 7 behaviors into 4 macro classes, lifting Test F1 Macro from 0.725 to 0.865 (0.948 Val F1 Macro).",
+          "Balanced rare behaviors using FocalLoss(alpha=0.25, gamma=2.0) and merged 7 classes into 4 macro groups, raising test F1 macro from 0.725 to 0.865.",
       },
     ],
     architecture: [
-      "Phase 1 (src/violence_detection/): TensorFlow/Keras 2D CNN, Volumetric 3D CNN, Conv3D + LSTM 5-Fold CV, and 5-attention ablation study (self, multihead, Bahdanau, Luong).",
-      "Phase 2 (src/hajjv2_detection/): PyTorch YOLO3DCNN and YOLO3DCNN_MultiLabel pipelines with 16-frame clip sampling and log1p crowd density regression.",
-      "Dataset & Configs: Relative YOLOv8 config (configs/hajjv2.yaml) and CSV-to-YOLO frame converter (prepare_yolo_dataset.py).",
-      "Standalone CLI inference (infer_4c.py) and reproducible evaluation reports saved under reports/ (JSON, CSV, TXT).",
+      "Phase 1 (src/violence_detection/): TensorFlow/Keras 2D CNN, 3D CNN, Conv3D + LSTM with 5-Fold CV, and an ablation across 5 attention mechanisms.",
+      "Phase 2 (src/hajjv2_detection/): PyTorch YOLO3DCNN and YOLO3DCNN_MultiLabel models sampling 16-frame clips with log1p crowd density regression.",
+      "Dataset scripts: Portable YOLOv8 config (configs/hajjv2.yaml) and CSV-to-YOLO converter (prepare_yolo_dataset.py).",
+      "CLI inference script (infer_4c.py) and repeatable JSON, CSV, and TXT evaluation outputs in reports/.",
     ],
     techStack: [
       "Python",
@@ -360,11 +360,11 @@ export const projects = [
     slug: "egyptbnbn-travel",
     title: "Egypt bnbn Travel",
     subtitle:
-      "Production travel & tour booking platform across Cairo, Giza, Luxor, Aswan & the Red Sea",
+      "Live tour and travel booking site covering Cairo, Giza, Luxor, Aswan, and the Red Sea",
     year: "Aug 2025 – Jun 2026",
-    role: "Full-Stack Web Developer · Remote",
+    role: "Full-Stack Web Developer (Remote)",
     description:
-      "Delivered remotely — a live Next.js 15 tourism platform featuring 19 tours across 5 categories, dynamic itinerary & Formik booking pages, SEO Schema.org markup, and Google Sheets-backed reviews.",
+      "Built remotely for Egypt bnbn Travel. A Next.js 15 & TypeScript booking platform with 19 tours, dynamic itineraries, booking forms, and Google Sheets reviews.",
     tags: ["Next.js 15", "TypeScript", "Tailwind CSS", "Google Sheets API"],
     tone: "lavender",
     coverImage: "/projects/egyptbnbn-travel/01-hero-desktop.png",
@@ -379,64 +379,64 @@ export const projects = [
         src: "/projects/egyptbnbn-travel/01-hero-desktop.png",
         title: "Landing Hero & Navigation",
         caption:
-          "Atmospheric Giza Pyramids hero with direct WhatsApp contact, category navigation, and dual CTAs.",
+          "Hero section overlooking Giza with quick category navigation, booking CTAs, and direct WhatsApp links.",
       },
       {
         src: "/projects/egyptbnbn-travel/02-popular-tours.png",
         title: "Popular Tours Catalog",
         caption:
-          "Curated Cairo, Alexandria, and Fayoum tour cards showing duration, max group size, ratings, and pricing.",
+          "Tour cards across Cairo, Alexandria, and Fayoum showing duration, group limit, rating, and starting price.",
       },
       {
         src: "/projects/egyptbnbn-travel/03-tour-booking.png",
         title: "Tour Itinerary & Booking Form",
         caption:
-          "Dynamic /tour/[slug] page pairing inclusions, exclusions, and step-by-step plans with a live Formik booking form.",
+          "Dynamic /tour/[slug] view combining day-by-day plans and inclusions with a live Formik booking form.",
       },
       {
         src: "/projects/egyptbnbn-travel/04-perfect-destinations.png",
         title: "Destinations Carousel",
         caption:
-          "Interactive Embla carousel highlighting Dahab, Hurghada, Luxor, and top Egyptian travel regions.",
+          "Horizontal Embla carousel highlighting Dahab, Hurghada, Luxor, and other travel spots across Egypt.",
       },
     ],
     overview:
-      "Built remotely for Egypt bnbn Travel (egyptbnbntravel.com), this production travel and excursion booking website runs on Next.js 15 and TypeScript. Travelers can browse 19 curated tours across Day Tours, Overday Tours, Multi-Day Packages, Nile Cruises, and Activities, inspect full day-by-day itineraries, submit booking inquiries, and read verified guest reviews fetched dynamically from Google Sheets.",
+      "Built remotely for Egypt bnbn Travel (egyptbnbntravel.com) using Next.js 15 and TypeScript. Visitors can browse 19 tours across five categories (Day Tours, Overday Tours, Multi-Day Packages, Nile Cruises, and Activities), read full itineraries, send booking inquiries, and check recent reviews pulled straight from Google Sheets.",
     challenge: {
       problem:
-        "The travel agency needed a fast SEO-ready catalog with non-technical team updates for traveler reviews without maintaining an admin dashboard or heavy CMS database.",
+        "The team wanted a fast, search-friendly website where staff could update guest testimonials easily without maintaining a custom admin panel or database.",
       decision:
-        "Built a typed TypeScript tour catalog across 5 Next.js category routes with Formik + Radix UI booking inquiries, Organization/WebSite JSON-LD structured data, and a serverless /api/reviews endpoint authenticating to Google Sheets.",
+        "I structured all 19 tours in typed TypeScript data across five Next.js category routes, built Formik + Radix UI inquiry forms, added JSON-LD SEO markup, and wired an /api/reviews endpoint to Google Sheets.",
       result:
-        "Live production platform serving 19 excursions across Egypt with instant spreadsheet-managed testimonials, WhatsApp conversion links, and Vercel Analytics.",
+        "Launched the live site at egyptbnbntravel.com with WhatsApp booking links, Vercel Analytics, and spreadsheet-backed reviews the team can update in seconds.",
     },
     features: [
       {
-        title: "Multi-Category Tour Catalog",
+        title: "5-Category Tour Catalog",
         detail:
-          "Dedicated Next.js routes for Day Tours, Overday Tours, Package Tours, Nile Cruise Tours, and Activities covering 19 excursions across Egypt.",
+          "Separate routes for Day Tours, Overday Tours, Package Tours, Nile Cruises, and Activities covering 19 excursions around Egypt.",
       },
       {
-        title: "Dynamic Booking & Itineraries",
+        title: "Itineraries & Booking Forms",
         detail:
-          "Each /tour/[slug] page presents highlights, inclusions/exclusions, numbered tour plans, and a Formik + Yup booking form with Radix UI selectors and toast feedback.",
+          "Each /tour/[slug] page lays out highlights, what is included, numbered schedules, and a Formik + Yup form with Radix selects and toast alerts.",
       },
       {
         title: "Google Sheets Reviews API",
         detail:
-          "Serverless /api/reviews route authenticates via a Google Service Account (googleapis) to fetch live traveler testimonials directly from a managed spreadsheet.",
+          "The /api/reviews route reads live guest feedback straight from a Google Sheet using a service account (googleapis).",
       },
       {
-        title: "Production SEO & Analytics",
+        title: "SEO & Analytics",
         detail:
-          "Configured canonical metadata, OpenGraph/Twitter tags, Organization & WebSite JSON-LD structured data, WhatsApp quick actions, and Vercel Analytics.",
+          "Includes canonical URLs, OpenGraph and Twitter cards, Organization and WebSite JSON-LD, WhatsApp shortcuts, and Vercel Analytics.",
       },
     ],
     architecture: [
-      "Built on Next.js 15.4 App Router, React 19, TypeScript, and Tailwind CSS v4 with Playfair Display and DM Sans typography.",
-      "Accessible UI primitives powered by Radix UI (@radix-ui/react-select, @radix-ui/react-slot), Lucide icons, and Embla Carousel.",
-      "Booking pipeline handles Formik state, validation, FormData submission, and react-hot-toast status notifications.",
-      "Live testimonials endpoint (/api/reviews) reads Google Sheets via base64 service-account credentials in environment variables.",
+      "Built with Next.js 15.4 App Router, React 19, TypeScript, Tailwind CSS v4, Playfair Display, and DM Sans.",
+      "UI components use Radix UI primitives (@radix-ui/react-select, @radix-ui/react-slot), Lucide icons, and Embla Carousel.",
+      "Booking forms run on Formik, validation schemas, FormData posts, and react-hot-toast notifications.",
+      "Testimonials are fetched via /api/reviews using base64 Google service-account credentials in environment variables.",
     ],
     techStack: [
       "Next.js 15",

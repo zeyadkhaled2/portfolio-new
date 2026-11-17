@@ -53,7 +53,7 @@ export default function OpenGraphImage() {
               flexWrap: "wrap",
             }}
           >
-            <span>{site.name} —&nbsp;</span>
+            <span>{site.name} ·&nbsp;</span>
             <span style={{ color: "#7e81f4" }}>{site.role}</span>
           </div>
           <div style={{ fontSize: 28, color: "#969696", maxWidth: 960, lineHeight: 1.35 }}>
