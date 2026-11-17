@@ -236,7 +236,7 @@ export const projects = [
     title: "Crowd Anomaly Detection",
     subtitle:
       "Multi-stage deep learning pipeline for crowd violence, abnormal behavior & density estimation",
-    year: "Nov 2026",
+    year: "Jul 2024 – Nov 2025",
     role: "Computer Vision & ML Engineer · Remote (Saudi Arabia)",
     description:
       "Built remotely with a team in Saudi Arabia — an end-to-end vision system progressing from Conv3D + LSTM (5-Fold CV) to a Hybrid YOLOv8n + 3D CNN + Motion Channel + Focal Loss architecture (0.948 Val / 0.865 Test F1 Macro).",

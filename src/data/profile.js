@@ -4,16 +4,6 @@
 
 export const experience = [
   {
-    period: "NOV 2026 · REMOTE",
-    role: "Computer Vision & ML Engineer",
-    company: "Remote Team (Saudi Arabia)",
-    caseStudies: [
-      { label: "Crowd Anomaly Detection", href: "/work/crowd-anomaly-detection" },
-    ],
-    summary:
-      "Worked remotely with a team in Saudi Arabia on Crowd Anomaly Detection — progressing from Conv3D + LSTM (5-Fold CV) to a Hybrid YOLOv8n + 3D CNN + Motion Channel + Focal Loss pipeline (0.948 Val / 0.865 Test F1 Macro).",
-  },
-  {
     period: "JUL — NOV 2026",
     role: "Full-Stack & AI Product Developer",
     company: "Independent Builds",
@@ -31,6 +21,16 @@ export const experience = [
     caseStudies: [{ label: "Egypt bnbn Travel", href: "/work/egyptbnbn-travel" }],
     summary:
       "Built and shipped the production Next.js 15 & TypeScript travel booking platform (egyptbnbntravel.com) covering 19 tours across 5 categories, dynamic itineraries, Formik booking flows, Schema.org SEO, and a Google Sheets reviews API.",
+  },
+  {
+    period: "JUL 2024 — NOV 2025 · REMOTE",
+    role: "Computer Vision & ML Engineer",
+    company: "Remote Team (Saudi Arabia)",
+    caseStudies: [
+      { label: "Crowd Anomaly Detection", href: "/work/crowd-anomaly-detection" },
+    ],
+    summary:
+      "Worked remotely with a team in Saudi Arabia on Crowd Anomaly Detection — progressing from Conv3D + LSTM (5-Fold CV) to a Hybrid YOLOv8n + 3D CNN + Motion Channel + Focal Loss pipeline (0.948 Val / 0.865 Test F1 Macro).",
   },
   {
     period: "2023 — 2025",
