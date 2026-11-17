@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import ProjectCardStage from "@/components/sections/ProjectCardStage";
 import Reveal, { ParallaxFloat, RevealGroup } from "@/components/ui/Reveal";
 import { projects, site } from "@/data";
 
@@ -28,7 +29,7 @@ function ProjectCard({
       href={`/work/${slug}`}
       className="group flex flex-col focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
     >
-      <div
+      <ProjectCardStage
         className={`relative aspect-[16/10] w-full overflow-hidden rounded-[28px] border border-line sm:rounded-[34px] ${backdropTones[tone] ?? backdropTones.obsidian}`}
       >
         {coverFit === "mobile-pair" && secondaryImage ? (
@@ -79,9 +80,22 @@ function ProjectCard({
                   : "object-cover object-center"
               }
             />
+            {secondaryImage && (
+              <Image
+                src={secondaryImage}
+                alt={`${title} secondary preview`}
+                fill
+                sizes="(max-width: 768px) 92vw, 660px"
+                className={`opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100 ${
+                  coverFit === "cover-top"
+                    ? "object-cover object-top"
+                    : "object-cover object-center"
+                }`}
+              />
+            )}
           </div>
         )}
-      </div>
+      </ProjectCardStage>
 
       <div className="mt-6 flex flex-col gap-2.5">
         <div className="flex items-baseline justify-between gap-4">

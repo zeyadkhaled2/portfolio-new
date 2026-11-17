@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CommandPalette from "@/components/layout/CommandPalette";
 import MobileMenu from "@/components/layout/MobileMenu";
 import ThemeToggle from "@/components/layout/ThemeToggle";
 import { ScrollProgressBar } from "@/components/ui/Reveal";
@@ -63,6 +64,7 @@ export default function Navbar() {
             ))}
           </ul>
 
+          <CommandPalette />
           <ThemeToggle />
           <MobileMenu links={navLinks} />
         </nav>

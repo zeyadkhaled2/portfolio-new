@@ -1,4 +1,5 @@
 import Image from "next/image";
+import CairoTimeBadge from "@/components/sections/CairoTimeBadge";
 import CopyEmailButton from "@/components/sections/CopyEmailButton";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
@@ -33,9 +34,7 @@ export default function Contact() {
                     <span className="h-2 w-2 rounded-full bg-mint" aria-hidden="true" />
                     <span>{site.availability}</span>
                   </span>
-                  <span className="rounded-full border border-line bg-canvas px-3.5 py-1.5">
-                    {site.location}
-                  </span>
+                  <CairoTimeBadge fallback={site.location} />
                 </div>
 
                 <div className="mt-8 flex flex-wrap items-center gap-3">
