@@ -20,17 +20,33 @@ export default function AppleIcon() {
           background: "#131314",
         }}
       >
-        <svg viewBox="0 0 32 32" width="128" height="128" fill="none">
-          <ellipse cx="16" cy="12.2" rx="7.2" ry="6.8" fill="#7e81f4" fillOpacity="0.22" />
-          <path
-            d="M8.5 12.2C8.5 8.22 11.86 5 16 5s7.5 3.22 7.5 7.2c0 2.32-1.08 4.38-2.75 5.68L23 25M11.25 17.88 9 25M14.2 19.2V26.2M17.8 19.2V26.2"
+        <svg viewBox="0 0 32 32" width="132" height="132" fill="none">
+          <rect
+            x="2.25"
+            y="2.25"
+            width="27.5"
+            height="27.5"
+            rx="9"
+            fill="#7e81f4"
+            fillOpacity="0.14"
             stroke="#7e81f4"
-            strokeWidth="2.4"
+            strokeOpacity="0.55"
+            strokeWidth="1.5"
+          />
+          <path
+            d="M9.75 10.5H21.75L10.25 21.5"
+            stroke="#f6f2e7"
+            strokeWidth="2.6"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
-          <circle cx="13.2" cy="12" r="1.4" fill="#f6f2e7" />
-          <circle cx="18.8" cy="12" r="1.4" fill="#f6f2e7" />
+          <path
+            d="M10.25 21.5H22.25"
+            stroke="#7e81f4"
+            strokeWidth="2.6"
+            strokeLinecap="round"
+          />
+          <circle cx="22.25" cy="10.5" r="1.4" fill="#78dfc0" />
         </svg>
       </div>
     ),

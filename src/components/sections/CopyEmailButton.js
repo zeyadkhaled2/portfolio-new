@@ -34,7 +34,11 @@ export default function CopyEmailButton({ email }) {
       type="button"
       onClick={handleCopy}
       aria-live="polite"
-      className="inline-flex cursor-pointer items-center gap-1.5 rounded-full border border-[#ece69a]/45 bg-[#0c1145]/70 px-3.5 py-1 font-mono text-[11px] uppercase tracking-[0.08em] text-[#ece69a] transition-colors hover:border-[#ece69a] hover:bg-[#0c1145] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ece69a]"
+      className={`inline-flex h-12 cursor-pointer items-center justify-center rounded-full border px-6 font-display text-base font-medium tracking-[0.01em] transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent active:scale-[0.98] ${
+        copied
+          ? "border-mint bg-canvas text-mint"
+          : "border-line bg-canvas text-ink hover:border-accent hover:text-accent"
+      }`}
     >
       {copied ? "Copied ✓" : "Copy email"}
     </button>

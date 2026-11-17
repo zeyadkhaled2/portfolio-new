@@ -10,25 +10,41 @@ export default function Navbar() {
       <div className="relative mx-auto flex h-18 w-full max-w-[1440px] items-center justify-between px-6 sm:px-10 lg:px-14">
         <Link
           href="/"
-          className="group inline-flex items-center gap-2.5 font-display text-xl font-medium tracking-tight text-ink transition-colors hover:text-accent"
+          className="group inline-flex items-center gap-3 font-display text-2xl font-semibold tracking-[-0.015em] text-ink transition-colors hover:text-accent"
         >
-          {/* Periwinkle geometric mark echoing tami.agency's emblem */}
+          {/* Custom geometric Z monogram mark */}
           <svg
-            viewBox="0 0 28 28"
-            className="h-7 w-7 text-accent transition-transform duration-300 group-hover:rotate-6"
+            viewBox="0 0 32 32"
+            className="h-8 w-8 text-accent transition-transform duration-300 group-hover:scale-105 group-hover:-rotate-3"
             fill="none"
             aria-hidden="true"
           >
-            <circle cx="14" cy="12" r="7" fill="currentColor" opacity="0.22" />
-            <path
-              d="M7 10.5C7 6.91 10.13 4 14 4s7 2.91 7 6.5c0 2.1-.98 3.96-2.5 5.15L21 21.5M9.5 15.65 7 21.5M12.5 16.8V23M15.5 16.8V23"
+            <rect
+              x="2.25"
+              y="2.25"
+              width="27.5"
+              height="27.5"
+              rx="9"
+              fill="currentColor"
+              fillOpacity="0.14"
               stroke="currentColor"
-              strokeWidth="2.1"
+              strokeOpacity="0.55"
+              strokeWidth="1.5"
+            />
+            <path
+              d="M9.75 10.5H21.75L10.25 21.5"
+              stroke="var(--ink)"
+              strokeWidth="2.5"
               strokeLinecap="round"
               strokeLinejoin="round"
             />
-            <circle cx="11.5" cy="10.2" r="1.1" fill="currentColor" />
-            <circle cx="16.5" cy="10.2" r="1.1" fill="currentColor" />
+            <path
+              d="M10.25 21.5H22.25"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+            />
+            <circle cx="22.25" cy="10.5" r="1.3" fill="var(--mint)" />
           </svg>
           <span>{site.shortName}</span>
         </Link>

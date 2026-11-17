@@ -1,5 +1,5 @@
 import localFont from "next/font/local";
-import { Archivo, Roboto_Mono, Silkscreen } from "next/font/google";
+import { Archivo, Roboto_Mono } from "next/font/google";
 
 export const clashGrotesk = localFont({
   src: [
@@ -26,16 +26,8 @@ export const robotoMono = Roboto_Mono({
   display: "swap",
 });
 
-export const silkscreen = Silkscreen({
-  variable: "--font-pixel",
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  display: "swap",
-});
-
 export const fontVariables = [
   clashGrotesk.variable,
   archivo.variable,
   robotoMono.variable,
-  silkscreen.variable,
 ].join(" ");

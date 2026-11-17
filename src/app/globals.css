@@ -80,7 +80,6 @@
   --font-display: var(--font-clash), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-roboto-mono), ui-monospace, monospace;
-  --font-pixel: var(--font-pixel), ui-monospace, monospace;
 }
 
 html {
@@ -122,23 +121,6 @@ body {
 
 .pill-shine:hover::after {
   transform: translateX(460%) rotate(-17deg);
-}
-
-/* Retro CRT scanlines & phosphor curvature glow */
-.crt-scanlines {
-  background-image: repeating-linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 0px,
-    rgba(0, 0, 0, 0) 2px,
-    rgba(0, 0, 0, 0.24) 3px,
-    rgba(0, 0, 0, 0.24) 4px
-  );
-}
-
-.crt-vignette {
-  box-shadow:
-    inset 0 0 60px rgba(4, 7, 36, 0.72),
-    inset 0 0 18px rgba(126, 129, 244, 0.22);
 }
 
 @media (prefers-reduced-motion: reduce) {
