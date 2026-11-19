@@ -10,18 +10,18 @@ export default function GlobalError({ error, retry }) {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#090c10",
-          color: "#f1f5f9",
+          background: "#131314",
+          color: "#f6f2e7",
           fontFamily: "system-ui, sans-serif",
           padding: "24px",
         }}
       >
         <div style={{ maxWidth: 520 }}>
-          <p style={{ color: "#f472b6", fontSize: 12, letterSpacing: "0.14em" }}>
+          <p style={{ color: "#ef91a5", fontSize: 12, letterSpacing: "0.14em" }}>
             CRITICAL ERROR
           </p>
           <h1 style={{ fontSize: 36, margin: "12px 0" }}>Something went wrong.</h1>
-          <p style={{ color: "#94a3b8", lineHeight: 1.6 }}>
+          <p style={{ color: "#969696", lineHeight: 1.6 }}>
             {error instanceof Error ? error.message : "An unexpected error occurred."}
           </p>
           <button
@@ -32,9 +32,9 @@ export default function GlobalError({ error, retry }) {
               height: 44,
               padding: "0 24px",
               borderRadius: 999,
-              border: "1px solid #2dd4bf",
-              background: "#2dd4bf",
-              color: "#041316",
+              border: "1px solid #7e81f4",
+              background: "#7e81f4",
+              color: "#131314",
               fontWeight: 600,
               cursor: "pointer",
             }}

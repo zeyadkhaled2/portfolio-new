@@ -1,17 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <rect x="1.5" y="1.5" width="29" height="29" rx="9" fill="#090c10" stroke="#2dd4bf" stroke-opacity="0.55" stroke-width="1.5" />
+  <rect x="1.5" y="1.5" width="29" height="29" rx="9" fill="#131314" stroke="#7e81f4" stroke-opacity="0.55" stroke-width="1.5" />
   <path
     d="M9.75 10.5H21.75L10.25 21.5"
-    stroke="#f1f5f9"
+    stroke="#f6f2e7"
     stroke-width="2.6"
     stroke-linecap="round"
     stroke-linejoin="round"
   />
   <path
     d="M10.25 21.5H22.25"
-    stroke="#2dd4bf"
+    stroke="#7e81f4"
     stroke-width="2.6"
     stroke-linecap="round"
   />
-  <circle cx="22.25" cy="10.5" r="1.4" fill="#38bdf8" />
+  <circle cx="22.25" cy="10.5" r="1.4" fill="#78dfc0" />
 </svg>

@@ -1,73 +1,70 @@
 @import "tailwindcss";
 
 /* ------------------------------------------------------------------
-   Modern Minimalistic 3D Palette — Deep Carbon & Glacial Teal
-   Dark mode default (#090c10 carbon, #f1f5f9 alabaster, #2dd4bf teal)
-   with a crisp gallery Light mode counterpart (#f6f8fa paper, #0d9488 teal).
+   Palette — Obsidian, Warm Cream & Periwinkle (#131314 / #f6f2e7 / #7e81f4)
+   Paired with a cohesive Light mode counterpart (#f6f2e7 / #131314 / #5b5ee6).
 ------------------------------------------------------------------- */
 :root,
 :root[data-theme="dark"] {
-  --canvas: #090c10;
-  --hero-surface: #0f1722;
-  --surface: #11161f;
-  --surface-strong: #18202c;
+  --canvas: #131314;
+  --hero-surface: #181a24;
+  --surface: #1b1b1d;
+  --surface-strong: #242428;
 
-  --ink: #f1f5f9;
-  --ink-muted: #94a3b8;
-  --ink-subtle: #64748b;
+  --ink: #f6f2e7;
+  --ink-muted: #969696;
+  --ink-subtle: #6e6e73;
 
-  --line: #202836;
-  --line-highlight: rgba(255, 255, 255, 0.06);
+  --line: #2c2c30;
 
-  --accent: #2dd4bf;
-  --accent-hover: #5eead4;
-  --accent-ink: #041316;
+  --accent: #7e81f4;
+  --accent-hover: #9699f8;
+  --accent-ink: #131314;
 
-  /* Harmonious sub-accents */
-  --pink: #f472b6;
-  --yellow: #fbbf24;
-  --mint: #38bdf8;
+  /* Sub-accents */
+  --pink: #ef91a5;
+  --yellow: #ece69a;
+  --mint: #78dfc0;
 
   /* Project showcase backdrops */
-  --tone-peach: #f6e2cf;
-  --tone-obsidian: #131922;
-  --tone-mint: #cdece2;
-  --tone-lavender: #dce5f9;
+  --tone-peach: #fdebd2;
+  --tone-obsidian: #1d1e22;
+  --tone-mint: #d7f2e8;
+  --tone-lavender: #e6e7fc;
 
-  --card-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.05) inset, 0 22px 48px -26px rgba(0, 0, 0, 0.78);
-  --grid-line: rgba(148, 163, 184, 0.08);
+  --card-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.05) inset, 0 22px 48px -26px rgba(0, 0, 0, 0.72);
+  --grid-line: rgba(246, 242, 231, 0.055);
 
   color-scheme: dark;
 }
 
 :root[data-theme="light"] {
-  --canvas: #f6f8fb;
-  --hero-surface: #e6f2f5;
-  --surface: #ffffff;
-  --surface-strong: #eef2f7;
+  --canvas: #f6f2e7;
+  --hero-surface: #ece9f2;
+  --surface: #ede8da;
+  --surface-strong: #e3ddc9;
 
-  --ink: #0d131a;
-  --ink-muted: #4b586b;
-  --ink-subtle: #6e7d91;
+  --ink: #131314;
+  --ink-muted: #56544e;
+  --ink-subtle: #7a776f;
 
-  --line: #dde4ee;
-  --line-highlight: rgba(255, 255, 255, 0.9);
+  --line: #d6d0c0;
 
-  --accent: #0d9488;
-  --accent-hover: #0f766e;
-  --accent-ink: #ffffff;
+  --accent: #5b5ee6;
+  --accent-hover: #484bd4;
+  --accent-ink: #f6f2e7;
 
-  --pink: #db2777;
-  --yellow: #d97706;
-  --mint: #0284c7;
+  --pink: #d45b76;
+  --yellow: #9d8e1a;
+  --mint: #1f8e6d;
 
-  --tone-peach: #fae3cc;
-  --tone-obsidian: #151b24;
-  --tone-mint: #c6e9dd;
-  --tone-lavender: #d8e2fa;
+  --tone-peach: #fae3c4;
+  --tone-obsidian: #18191d;
+  --tone-mint: #ccecdf;
+  --tone-lavender: #dfe1fb;
 
-  --card-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.9) inset, 0 18px 40px -24px rgba(15, 23, 42, 0.14);
-  --grid-line: rgba(15, 23, 42, 0.055);
+  --card-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.55) inset, 0 18px 40px -24px rgba(19, 19, 20, 0.14);
+  --grid-line: rgba(19, 19, 20, 0.055);
 
   color-scheme: light;
 }
