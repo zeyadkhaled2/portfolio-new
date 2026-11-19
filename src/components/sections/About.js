@@ -7,7 +7,7 @@ export default function About() {
       <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-10 lg:px-14">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-5">
-            <span className="inline-block -rotate-3 rounded-full border border-accent px-3.5 py-1.5 font-mono text-xs uppercase tracking-[0.14em] text-accent">
+            <span className="inline-block rounded-full border border-accent/60 bg-surface/75 px-3.5 py-1.5 font-mono text-xs uppercase tracking-[0.14em] text-accent">
               About
             </span>
             <h2 className="mt-5 font-display text-4xl font-bold uppercase leading-[1.08] tracking-[0.02em] text-ink sm:text-5xl">
@@ -31,7 +31,7 @@ export default function About() {
             </p>
 
             {/* Education card */}
-            <div className="rounded-[26px] border border-line bg-surface p-5 sm:p-6">
+            <div className="card-3d rounded-[26px] border border-line bg-surface p-5 sm:p-6">
               <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-accent">
                 Education
               </p>

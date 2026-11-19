@@ -28,7 +28,7 @@ export default function Skills() {
             <div
               key={group}
               data-reveal-item
-              className="rounded-[28px] border border-line bg-surface p-6 transition-colors duration-200 hover:border-accent/60"
+              className="card-3d rounded-[28px] border border-line bg-surface p-6 transition-colors duration-200 hover:border-accent/60"
             >
               <div className="mb-5 flex items-center gap-2.5">
                 <span className={`h-2.5 w-2.5 rounded-full ${accentDot[accent] ?? "bg-accent"}`} />

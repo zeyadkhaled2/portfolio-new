@@ -73,7 +73,7 @@ async function ProjectDetailContent({ params }) {
         {/* Project Hero Header */}
         <header className="mt-8 sm:mt-10">
           <div className="mb-5">
-            <span className="inline-block -rotate-3 rounded-full border border-accent px-3.5 py-1 font-mono text-xs uppercase tracking-[0.12em] text-ink">
+            <span className="inline-block rounded-full border border-accent/60 bg-surface/75 px-3.5 py-1 font-mono text-xs uppercase tracking-[0.12em] text-ink">
               {project.year} · {project.role}
             </span>
           </div>
@@ -137,7 +137,7 @@ async function ProjectDetailContent({ params }) {
               <div
                 key={feat.title}
                 data-reveal-item
-                className="rounded-[28px] border border-line bg-surface p-6 transition-colors hover:border-accent/50"
+                className="card-3d rounded-[28px] border border-line bg-surface p-6 transition-colors hover:border-accent/50"
               >
                 <div className="mb-3 flex items-center gap-2.5">
                   <span
@@ -172,7 +172,7 @@ async function ProjectDetailContent({ params }) {
                 </h2>
               </Reveal>
               <RevealGroup stagger={0.09} className="mt-8 grid gap-5 md:grid-cols-3">
-                <div data-reveal-item className="rounded-[28px] border border-line bg-surface p-6">
+                <div data-reveal-item className="card-3d rounded-[28px] border border-line bg-surface p-6">
                   <p className="font-mono text-xs uppercase tracking-[0.14em] text-pink">
                     01 · Problem
                   </p>
@@ -180,7 +180,7 @@ async function ProjectDetailContent({ params }) {
                     {project.challenge.problem}
                   </p>
                 </div>
-                <div data-reveal-item className="rounded-[28px] border border-line bg-surface p-6">
+                <div data-reveal-item className="card-3d rounded-[28px] border border-line bg-surface p-6">
                   <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent">
                     02 · Approach
                   </p>
@@ -188,7 +188,7 @@ async function ProjectDetailContent({ params }) {
                     {project.challenge.decision}
                   </p>
                 </div>
-                <div data-reveal-item className="rounded-[28px] border border-line bg-surface p-6">
+                <div data-reveal-item className="card-3d rounded-[28px] border border-line bg-surface p-6">
                   <p className="font-mono text-xs uppercase tracking-[0.14em] text-mint">
                     03 · Outcome
                   </p>
@@ -243,7 +243,7 @@ async function ProjectDetailContent({ params }) {
             </div>
 
             {project.readmeCommands?.length > 0 && (
-              <div className="rounded-[28px] border border-line bg-surface p-6">
+              <div className="card-3d rounded-[28px] border border-line bg-surface p-6">
                 <h3 className="font-display text-lg font-semibold uppercase tracking-[0.04em] text-ink">
                   Workflow &amp; Commands
                 </h3>

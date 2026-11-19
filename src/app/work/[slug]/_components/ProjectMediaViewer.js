@@ -157,7 +157,7 @@ export default function ProjectMediaViewer({ title, video, screenshots }) {
             />
           </div>
           <div className="flex flex-wrap items-center justify-between gap-2 border-t border-white/10 px-5 py-3.5">
-            <p className="font-sans text-sm text-[#f6f2e7]/85">{video.caption}</p>
+            <p className="font-sans text-sm text-[#f1f5f9]/85">{video.caption}</p>
             <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-mint">
               Recorded Demo
             </span>
@@ -165,7 +165,7 @@ export default function ProjectMediaViewer({ title, video, screenshots }) {
         </div>
       ) : (
         <div className="space-y-4">
-          <div ref={stageRef} className="overflow-hidden rounded-[32px] border border-line bg-surface">
+          <div ref={stageRef} className="card-3d overflow-hidden rounded-[32px] border border-line bg-surface">
             <button
               type="button"
               onClick={() => setLightboxOpen(true)}
@@ -242,12 +242,12 @@ export default function ProjectMediaViewer({ title, video, screenshots }) {
           onClick={() => setLightboxOpen(false)}
         >
           <div
-            className="flex items-center justify-between gap-4 text-[#f6f2e7]"
+            className="flex items-center justify-between gap-4 text-[#f1f5f9]"
             onClick={(e) => e.stopPropagation()}
           >
             <div>
               <p className="font-display text-lg font-semibold">{activeShot.title}</p>
-              <p className="font-sans text-xs text-[#969696] sm:text-sm">{activeShot.caption}</p>
+              <p className="font-sans text-xs text-[#94a3b8] sm:text-sm">{activeShot.caption}</p>
             </div>
             <div className="flex items-center gap-2">
               {screenshots.length > 1 && (

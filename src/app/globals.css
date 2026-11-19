@@ -1,63 +1,73 @@
 @import "tailwindcss";
 
 /* ------------------------------------------------------------------
-   v2 Palette — inspired by portfolio.tami.agency
-   Dark mode default (#131314 obsidian, #f6f2e7 cream, #7e81f4 periwinkle)
-   with a cohesive light mode counterpart (#f6f2e7 canvas, #131314 ink).
+   Modern Minimalistic 3D Palette — Deep Carbon & Glacial Teal
+   Dark mode default (#090c10 carbon, #f1f5f9 alabaster, #2dd4bf teal)
+   with a crisp gallery Light mode counterpart (#f6f8fa paper, #0d9488 teal).
 ------------------------------------------------------------------- */
 :root,
 :root[data-theme="dark"] {
-  --canvas: #131314;
-  --surface: #1b1b1d;
-  --surface-strong: #242428;
+  --canvas: #090c10;
+  --hero-surface: #0f1722;
+  --surface: #11161f;
+  --surface-strong: #18202c;
 
-  --ink: #f6f2e7;
-  --ink-muted: #969696;
-  --ink-subtle: #6e6e73;
+  --ink: #f1f5f9;
+  --ink-muted: #94a3b8;
+  --ink-subtle: #64748b;
 
-  --line: #2c2c30;
+  --line: #202836;
+  --line-highlight: rgba(255, 255, 255, 0.06);
 
-  --accent: #7e81f4;
-  --accent-hover: #9699f8;
-  --accent-ink: #131314;
+  --accent: #2dd4bf;
+  --accent-hover: #5eead4;
+  --accent-ink: #041316;
 
-  /* Sub-accents from tami.agency */
-  --pink: #ef91a5;
-  --yellow: #ece69a;
-  --mint: #78dfc0;
+  /* Harmonious sub-accents */
+  --pink: #f472b6;
+  --yellow: #fbbf24;
+  --mint: #38bdf8;
 
   /* Project showcase backdrops */
-  --tone-peach: #fdebd2;
-  --tone-obsidian: #1d1e22;
-  --tone-mint: #d7f2e8;
-  --tone-lavender: #e6e7fc;
+  --tone-peach: #f6e2cf;
+  --tone-obsidian: #131922;
+  --tone-mint: #cdece2;
+  --tone-lavender: #dce5f9;
+
+  --card-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.05) inset, 0 22px 48px -26px rgba(0, 0, 0, 0.78);
+  --grid-line: rgba(148, 163, 184, 0.08);
 
   color-scheme: dark;
 }
 
 :root[data-theme="light"] {
-  --canvas: #f6f2e7;
-  --surface: #ede8da;
-  --surface-strong: #e3ddc9;
+  --canvas: #f6f8fb;
+  --hero-surface: #e6f2f5;
+  --surface: #ffffff;
+  --surface-strong: #eef2f7;
 
-  --ink: #131314;
-  --ink-muted: #56544e;
-  --ink-subtle: #7a776f;
+  --ink: #0d131a;
+  --ink-muted: #4b586b;
+  --ink-subtle: #6e7d91;
 
-  --line: #d6d0c0;
+  --line: #dde4ee;
+  --line-highlight: rgba(255, 255, 255, 0.9);
 
-  --accent: #5b5ee6;
-  --accent-hover: #484bd4;
-  --accent-ink: #f6f2e7;
+  --accent: #0d9488;
+  --accent-hover: #0f766e;
+  --accent-ink: #ffffff;
 
-  --pink: #d45b76;
-  --yellow: #9d8e1a;
-  --mint: #1f8e6d;
+  --pink: #db2777;
+  --yellow: #d97706;
+  --mint: #0284c7;
 
-  --tone-peach: #fae3c4;
-  --tone-obsidian: #18191d;
-  --tone-mint: #ccecdf;
-  --tone-lavender: #dfe1fb;
+  --tone-peach: #fae3cc;
+  --tone-obsidian: #151b24;
+  --tone-mint: #c6e9dd;
+  --tone-lavender: #d8e2fa;
+
+  --card-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.9) inset, 0 18px 40px -24px rgba(15, 23, 42, 0.14);
+  --grid-line: rgba(15, 23, 42, 0.055);
 
   color-scheme: light;
 }
@@ -97,7 +107,29 @@ body {
   transition: background-color 220ms ease, color 220ms ease;
 }
 
-/* Subtle diagonal pill shine (tami.agency button sweep) */
+/* Subtle tactile 3D surface elevation matching minimal theme tokens */
+.card-3d {
+  box-shadow: var(--card-shadow);
+}
+
+/* Blended 3D Hero stage fading seamlessly into --canvas below */
+.hero-atmosphere {
+  background:
+    radial-gradient(ellipse 75% 60% at 50% -10%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 70%),
+    linear-gradient(180deg, var(--hero-surface) 0%, color-mix(in srgb, var(--hero-surface) 55%, var(--canvas)) 58%, var(--canvas) 100%);
+}
+
+/* Architectural perspective grid fading into --canvas before the bottom seam */
+.hero-grid {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 85% 75% at 50% 28%, rgba(0, 0, 0, 0.9) 10%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 28%, rgba(0, 0, 0, 0.9) 10%, transparent 78%);
+}
+
+/* Subtle diagonal pill shine */
 .pill-shine {
   position: relative;
   overflow: hidden;

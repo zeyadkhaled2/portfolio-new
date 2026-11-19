@@ -67,7 +67,7 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
       </head>
-      <body className="flex min-h-full flex-col bg-canvas text-ink selection:bg-accent selection:text-[#131314]">
+      <body className="flex min-h-full flex-col bg-canvas text-ink selection:bg-accent selection:text-accent-ink">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

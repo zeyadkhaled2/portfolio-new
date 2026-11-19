@@ -18,8 +18,9 @@ export default function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#131314",
-          color: "#f6f2e7",
+          background:
+            "radial-gradient(ellipse 80% 60% at 50% 0%, #10242c 0%, #090c10 72%)",
+          color: "#f1f5f9",
           padding: "64px 72px",
           fontFamily: "sans-serif",
         }}
@@ -29,16 +30,16 @@ export default function OpenGraphImage() {
             style={{
               display: "flex",
               alignItems: "center",
-              border: "2px solid #7e81f4",
+              border: "2px solid #2dd4bf",
               borderRadius: "999px",
               padding: "10px 24px",
               fontSize: 24,
-              color: "#f6f2e7",
+              color: "#f1f5f9",
             }}
           >
             Hi, I&apos;m Ziad
           </div>
-          <div style={{ fontSize: 22, color: "#969696" }}>{site.location}</div>
+          <div style={{ fontSize: 22, color: "#94a3b8" }}>{site.location}</div>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
@@ -54,9 +55,9 @@ export default function OpenGraphImage() {
             }}
           >
             <span>{site.name} ·&nbsp;</span>
-            <span style={{ color: "#7e81f4" }}>{site.role}</span>
+            <span style={{ color: "#2dd4bf" }}>{site.role}</span>
           </div>
-          <div style={{ fontSize: 28, color: "#969696", maxWidth: 960, lineHeight: 1.35 }}>
+          <div style={{ fontSize: 28, color: "#94a3b8", maxWidth: 960, lineHeight: 1.35 }}>
             {site.description}
           </div>
         </div>
@@ -65,14 +66,14 @@ export default function OpenGraphImage() {
           style={{
             display: "flex",
             justifyContent: "space-between",
-            borderTop: "1px solid #2c2c30",
+            borderTop: "1px solid #202836",
             paddingTop: 24,
             fontSize: 20,
-            color: "#7e81f4",
+            color: "#2dd4bf",
           }}
         >
           <span>Full-Stack Web · React Native · AI &amp; Computer Vision</span>
-          <span style={{ color: "#f6f2e7" }}>{site.email}</span>
+          <span style={{ color: "#f1f5f9" }}>{site.email}</span>
         </div>
       </div>
     ),

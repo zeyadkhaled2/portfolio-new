@@ -30,7 +30,7 @@ function ProjectCard({
       className="group flex flex-col focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
     >
       <ProjectCardStage
-        className={`relative aspect-[16/10] w-full overflow-hidden rounded-[28px] border border-line sm:rounded-[34px] ${backdropTones[tone] ?? backdropTones.obsidian}`}
+        className={`card-3d relative aspect-[16/10] w-full overflow-hidden rounded-[28px] border border-line sm:rounded-[34px] ${backdropTones[tone] ?? backdropTones.obsidian}`}
       >
         {coverFit === "mobile-pair" && secondaryImage ? (
           <div className="relative flex h-full w-full items-end justify-center gap-5 px-6 pt-7 sm:gap-7 sm:px-10 sm:pt-9">

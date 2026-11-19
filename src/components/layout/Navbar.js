@@ -7,7 +7,7 @@ import { site, navLinks } from "@/data";
 
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-50 border-b border-line/80 bg-canvas/90 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-line/70 bg-canvas/75 backdrop-blur-xl">
       <div className="relative mx-auto flex h-18 w-full max-w-[1440px] items-center justify-between px-6 sm:px-10 lg:px-14">
         <Link
           href="/"

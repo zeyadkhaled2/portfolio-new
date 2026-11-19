@@ -12,7 +12,7 @@ export default function Contact() {
     <section id="contact" className="py-16 sm:py-24">
       <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-10 lg:px-14">
         <Reveal>
-          <div className="rounded-[28px] border border-line bg-surface p-7 sm:rounded-[34px] sm:p-12 lg:p-14">
+          <div className="card-3d rounded-[28px] border border-line bg-surface p-7 sm:rounded-[34px] sm:p-12 lg:p-14">
             <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
               {/* Left Column: Heading, copy, and direct contact actions */}
               <div className="lg:col-span-8">

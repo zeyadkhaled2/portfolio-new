@@ -149,13 +149,12 @@ export function HeroTimeline({ children, className = "" }) {
 
         tl.fromTo(
           "[data-hero='badge']",
-          { autoAlpha: 0, y: 10, rotation: -14 },
+          { autoAlpha: 0, y: 10 },
           {
             autoAlpha: 1,
             y: 0,
-            rotation: -9,
             duration: 0.45,
-            clearProps: "opacity,visibility",
+            clearProps: "transform,opacity,visibility",
           }
         );
 
